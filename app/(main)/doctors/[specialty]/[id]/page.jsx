@@ -6,7 +6,7 @@ export default async function DoctorProfilePage({ params }) {
   const { id } = await params;
 
   try {
-    // Fetch doctor data and available slots in parallel
+    // Fetch Mentor data and available slots in parallel
     const [doctorData, slotsData] = await Promise.all([
       getDoctorById(id),
       getAvailableTimeSlots(id),
@@ -19,7 +19,7 @@ export default async function DoctorProfilePage({ params }) {
       />
     );
   } catch (error) {
-    console.error("Error loading doctor profile:", error);
+    console.error("Error loading Mentor profile:", error);
     redirect("/doctors");
   }
 }

@@ -21,7 +21,7 @@ export default async function PatientAppointmentsPage() {
         icon={<Calendar />}
         title="My Appointments"
         backLink="/doctors"
-        backLabel="Find Doctors"
+        backLabel="Find Mentors"
       />
 
       <Card className="border-emerald-900/20">
@@ -54,7 +54,7 @@ export default async function PatientAppointmentsPage() {
               </h3>
               <p className="text-muted-foreground">
                 You don&apos;t have any appointments scheduled yet. Browse our
-                doctors and book your first consultation.
+                Mentors and book your first consultation.
               </p>
             </div>
           )}

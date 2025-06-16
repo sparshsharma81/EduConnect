@@ -84,7 +84,7 @@ export default async function VerificationPage() {
 
             <p className="text-muted-foreground mb-6">
               {isRejected
-                ? "You can update your doctor profile and resubmit for verification."
+                ? "You can update your Mentor profile and resubmit for verification."
                 : "While you wait, you can familiarize yourself with our platform or reach out to our support team if you have any questions."}
             </p>
 

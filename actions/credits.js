@@ -144,12 +144,12 @@ export async function deductCreditsForAppointment(userId, doctorId) {
     }
 
     if (!doctor) {
-      throw new Error("Doctor not found");
+      throw new Error("Mentor not found");
     }
 
-    // Deduct credits from patient and add to doctor
+    // Deduct credits from Student and add to Mentor
     const result = await db.$transaction(async (tx) => {
-      // Create transaction record for patient (deduction)
+      // Create transaction record for Student (deduction)
       await tx.creditTransaction.create({
         data: {
           userId: user.id,
@@ -158,7 +158,7 @@ export async function deductCreditsForAppointment(userId, doctorId) {
         },
       });
 
-      // Create transaction record for doctor (addition)
+      // Create transaction record for Mentor (addition)
       await tx.creditTransaction.create({
         data: {
           userId: doctor.id,
@@ -167,7 +167,7 @@ export async function deductCreditsForAppointment(userId, doctorId) {
         },
       });
 
-      // Update patient's credit balance (decrement)
+      // Update Student's credit balance (decrement)
       const updatedUser = await tx.user.update({
         where: {
           id: user.id,
@@ -179,7 +179,7 @@ export async function deductCreditsForAppointment(userId, doctorId) {
         },
       });
 
-      // Update doctor's credit balance (increment)
+        // Update Mentor's credit balance (increment)
       await tx.user.update({
         where: {
           id: doctor.id,

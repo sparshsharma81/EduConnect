@@ -11,8 +11,8 @@ const inter = Inter({ subsets: ["latin"] });
 //this is one of the default font --- inter
 
 export const metadata = {
-  title: "MediMeet - Doctors Appointment App",
-  description: "Connect with doctors anytime anywhere",
+  title: "EduConnect - Mentors Appointment App",
+  description: "Connect with Mentors anytime anywhere",
 };
 
 export default function RootLayout({ children }) {

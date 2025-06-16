@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Find Doctors - MediMeet",
-  description: "Browse and book appointments with top healthcare providers",
+  title: "Find Mentors - EduConnect",
+  description: "Browse and book appointments with top Mentors",
 };
 
 export default async function DoctorsLayout({ children }) {

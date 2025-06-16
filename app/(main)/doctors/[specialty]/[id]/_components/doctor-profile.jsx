@@ -61,7 +61,7 @@ export function DoctorProfile({ doctor, availableDays }) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {/* Left column - Doctor Photo and Quick Info (fixed on scroll) */}
+      {/* Left column - Mentor Photo and Quick Info (fixed on scroll) */}
       <div className="md:col-span-1">
         <div className="md:sticky md:top-24">
           <Card className="border-emerald-900/20">
@@ -122,7 +122,7 @@ export function DoctorProfile({ doctor, availableDays }) {
         </div>
       </div>
 
-      {/* Right column - Doctor Details and Booking Section */}
+      {/* Right column - Mentor Details and Booking Section */}
       <div className="md:col-span-2 space-y-6">
         <Card className="border-emerald-900/20">
           <CardHeader>
@@ -212,9 +212,9 @@ export function DoctorProfile({ doctor, availableDays }) {
                       No available slots
                     </h3>
                     <p className="text-muted-foreground">
-                      This doctor doesn&apos;t have any available appointment
+                      This Mentor doesn&apos;t have any available appointment
                       slots for the next 4 days. Please check back later or try
-                      another doctor.
+                      another Mentor.
                     </p>
                   </div>
                 )}

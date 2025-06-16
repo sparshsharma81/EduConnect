@@ -36,17 +36,17 @@ export function PendingDoctors({ doctors }) {
     fn: submitStatusUpdate,
   } = useFetch(updateDoctorStatus);
 
-  // Open doctor details dialog
+  // Open Mentor details dialog
   const handleViewDetails = (doctor) => {
     setSelectedDoctor(doctor);
   };
 
-  // Close doctor details dialog
+  // Close Mentor details dialog
   const handleCloseDialog = () => {
     setSelectedDoctor(null);
   };
 
-  // Handle approve or reject doctor
+  // Handle approve or reject Mentor
   const handleUpdateStatus = async (doctorId, status) => {
     if (loading) return;
 
@@ -127,16 +127,16 @@ export function PendingDoctors({ doctors }) {
         </CardContent>
       </Card>
 
-      {/* Doctor Details Dialog */}
+      {/* Mentor Details Dialog */}
       {selectedDoctor && (
         <Dialog open={!!selectedDoctor} onOpenChange={handleCloseDialog}>
           <DialogContent className="max-w-3xl">
             <DialogHeader>
               <DialogTitle className="text-xl font-bold text-white">
-                Doctor Verification Details
+                Mentor Verification Details
               </DialogTitle>
               <DialogDescription>
-                Review the doctor&apos;s information carefully before making a
+                Review the Mentor&apos;s information carefully before making a
                 decision
               </DialogDescription>
             </DialogHeader>

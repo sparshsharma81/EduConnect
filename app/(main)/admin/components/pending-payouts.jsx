@@ -83,7 +83,7 @@ export function PendingPayouts({ payouts }) {
             Pending Payouts
           </CardTitle>
           <CardDescription>
-            Review and approve doctor payout requests
+            Review and approve Mentor payout requests
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -184,11 +184,11 @@ export function PendingPayouts({ payouts }) {
             </DialogHeader>
 
             <div className="space-y-6 py-4">
-              {/* Doctor Information */}
+              {/* Mentor Information */}
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
                   <Stethoscope className="h-5 w-5 text-emerald-400" />
-                  <h3 className="text-white font-medium">Doctor Information</h3>
+                  <h3 className="text-white font-medium">Mentor Information</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -275,7 +275,7 @@ export function PendingPayouts({ payouts }) {
                 <Alert variant="destructive">
                   <AlertCircle className="h-4 w-4" />
                   <AlertDescription>
-                    Warning: Doctor currently has only{" "}
+                    Warning: Mentor currently has only{" "}
                     {selectedPayout.doctor.credits} credits but this payout
                     requires {selectedPayout.credits} credits. The payout cannot
                     be processed.
@@ -330,7 +330,7 @@ export function PendingPayouts({ payouts }) {
                   This action will:
                   <ul className="mt-2 space-y-1 list-disc pl-4">
                     <li>
-                      Deduct {selectedPayout.credits} credits from Dr.{" "}
+                      Deduct {selectedPayout.credits} credits from Mentor.{" "}
                       {selectedPayout.doctor.name}'s account
                     </li>
                     <li>Mark the payout as PROCESSED</li>
@@ -341,9 +341,9 @@ export function PendingPayouts({ payouts }) {
 
               <div className="bg-muted/20 p-4 rounded-lg border border-emerald-900/20">
                 <div className="flex justify-between mb-2">
-                  <span className="text-muted-foreground">Doctor:</span>
+                  <span className="text-muted-foreground">Mentor:</span>
                   <span className="text-white">
-                    Dr. {selectedPayout.doctor.name}
+                    Mentor. {selectedPayout.doctor.name}
                   </span>
                 </div>
                 <div className="flex justify-between mb-2">

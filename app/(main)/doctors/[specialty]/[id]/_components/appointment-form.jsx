@@ -74,7 +74,7 @@ export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
           className="bg-background border-emerald-900/20 h-32"
         />
         <p className="text-sm text-muted-foreground">
-          This information will be shared with the doctor before your
+          This information will be shared with the Mentor before your
           appointment.
         </p>
       </div>

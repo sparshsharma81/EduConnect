@@ -5,7 +5,7 @@ import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
 /**
- * Set doctor's availability slots
+ * Set Mentor's availability slots
  */
 export async function setAvailabilitySlots(formData) {
   const { userId } = await auth();
@@ -15,7 +15,7 @@ export async function setAvailabilitySlots(formData) {
   }
 
   try {
-    // Get the doctor
+    // Get the Mentor
     const doctor = await db.user.findUnique({
       where: {
         clerkUserId: userId,
@@ -24,7 +24,7 @@ export async function setAvailabilitySlots(formData) {
     });
 
     if (!doctor) {
-      throw new Error("Doctor not found");
+      throw new Error("Mentor not found");
     }
 
     // Get form data
@@ -40,7 +40,7 @@ export async function setAvailabilitySlots(formData) {
       throw new Error("Start time must be before end time");
     }
 
-    // Check if the doctor already has slots
+    // Check if the Mentor already has slots
     const existingSlots = await db.availability.findMany({
       where: {
         doctorId: doctor.id,
@@ -84,7 +84,7 @@ export async function setAvailabilitySlots(formData) {
 }
 
 /**
- * Get doctor's current availability slots
+ * Get Mentor's current availability slots
  */
 export async function getDoctorAvailability() {
   const { userId } = await auth();
@@ -102,7 +102,7 @@ export async function getDoctorAvailability() {
     });
 
     if (!doctor) {
-      throw new Error("Doctor not found");
+      throw new Error("Mentor not found");
     }
 
     const availabilitySlots = await db.availability.findMany({
@@ -121,7 +121,7 @@ export async function getDoctorAvailability() {
 }
 
 /**
- * Get doctor's upcoming appointments
+ * Get Mentor's upcoming appointments
  */
 
 export async function getDoctorAppointments() {
@@ -140,7 +140,7 @@ export async function getDoctorAppointments() {
     });
 
     if (!doctor) {
-      throw new Error("Doctor not found");
+      throw new Error("Mentor not found");
     }
 
     const appointments = await db.appointment.findMany({
@@ -165,7 +165,7 @@ export async function getDoctorAppointments() {
 }
 
 /**
- * Cancel an appointment (can be done by both doctor and patient)
+ * Cancel an appointment (can be done by both Mentor and Student)
  */
 export async function cancelAppointment(formData) {
   const { userId } = await auth();
@@ -223,8 +223,8 @@ export async function cancelAppointment(formData) {
         },
       });
 
-      // Always refund credits to patient and deduct from doctor
-      // Create credit transaction for patient (refund)
+      // Always refund credits to Student and deduct from Mentor
+      // Create credit transaction for Student (refund)
       await tx.creditTransaction.create({
         data: {
           userId: appointment.patientId,
@@ -233,7 +233,7 @@ export async function cancelAppointment(formData) {
         },
       });
 
-      // Create credit transaction for doctor (deduction)
+        // Create credit transaction for Mentor (deduction)
       await tx.creditTransaction.create({
         data: {
           userId: appointment.doctorId,
@@ -242,7 +242,7 @@ export async function cancelAppointment(formData) {
         },
       });
 
-      // Update patient's credit balance (increment)
+      // Update Student's credit balance (increment)
       await tx.user.update({
         where: {
           id: appointment.patientId,
@@ -254,7 +254,7 @@ export async function cancelAppointment(formData) {
         },
       });
 
-      // Update doctor's credit balance (decrement)
+      // Update Mentor's credit balance (decrement)
       await tx.user.update({
         where: {
           id: appointment.doctorId,
@@ -359,7 +359,7 @@ export async function markAppointmentCompleted(formData) {
     });
 
     if (!doctor) {
-      throw new Error("Doctor not found");
+      throw new Error("Mentor not found");
     }
 
     const appointmentId = formData.get("appointmentId");
@@ -372,7 +372,7 @@ export async function markAppointmentCompleted(formData) {
     const appointment = await db.appointment.findUnique({
       where: {
         id: appointmentId,
-        doctorId: doctor.id, // Ensure appointment belongs to this doctor
+        doctorId: doctor.id, // Ensure appointment belongs to this Mentor
       },
       include: {
         patient: true,

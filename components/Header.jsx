@@ -59,7 +59,7 @@ export default async function Header() {
 
 
             
-            {/* Doctor Links */}
+            {/* Mentor Links */}
             {user?.role === "DOCTOR" && (
               <Link href="/doctor">
                 <Button
@@ -67,7 +67,7 @@ export default async function Header() {
                   className="hidden md:inline-flex items-center gap-2"
                 >
                   <Stethoscope className="h-4 w-4" />
-                  Doctor Dashboard
+                  Mentor Dashboard
                 </Button>
                 <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
                   <Stethoscope className="h-4 w-4" />

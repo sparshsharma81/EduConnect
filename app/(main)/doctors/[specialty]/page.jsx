@@ -8,16 +8,16 @@ export default async function DoctorSpecialtyPage({ params }) {
     //this will take params...
   const { specialty } = await params;
 
-  // Redirect to main doctors page if no specialty is provided
+  // Redirect to main doctors page if no specialty is provided  
   if (!specialty) {
     redirect("/doctors");
   }
 
-  // Fetch doctors by specialty
+  // Fetch Mentors by specialty
   const { doctors, error } = await getDoctorsBySpecialty(specialty);
 
   if (error) {
-    console.error("Error fetching doctors:", error);
+    console.error("Error fetching Mentors:", error);
   }
 
   return (
@@ -37,10 +37,10 @@ export default async function DoctorSpecialtyPage({ params }) {
       ) : (
         <div className="text-center py-12">
           <h3 className="text-xl font-medium text-white mb-2">
-            No doctors available
+            No Mentors available
           </h3>
           <p className="text-muted-foreground">
-            There are currently no verified doctors in this specialty. Please
+            There are currently no verified Mentors in this specialty. Please
             check back later or choose another specialty.
           </p>
         </div>

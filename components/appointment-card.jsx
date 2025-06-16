@@ -136,7 +136,7 @@ export function AppointmentCard({
     }
   };
 
-  // Handle save notes (doctor only)
+  // Handle save notes (Mentor only)
   const handleSaveNotes = async () => {
     if (notesLoading || userRole !== "DOCTOR") return;
 
@@ -440,7 +440,7 @@ export function AppointmentCard({
               </div>
             )}
 
-            {/* Doctor Notes (Doctor can view/edit, Patient can only view) */}
+            {/* Mentor Notes (Mentor can view/edit, Student can only view) */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <h4 className="text-sm font-medium text-muted-foreground">

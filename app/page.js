@@ -20,14 +20,14 @@ export default function Home() {
                 variant="outline"
                 className="bg-emerald-900/30 border-emerald-700/30 px-4 py-2 text-emerald-400 text-sm font-medium"
               >
-                Healthcare made simple
+                Education made simple
               </Badge>
               <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold text-white leading-tight text-glow gradient-title">
-                Connect with doctors <br />
+                Connect with Mentors <br />
                 <span className="gradient-title text-outline-white">anytime, anywhere</span>
               </h1>
               <p className="text-muted-foreground text-lg md:text-xl max-w-md">
-                Book appointments, consult via video, and manage your healthcare
+                Book appointments, consult via video, and manage your education
                 journey all in one secure platform.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -47,7 +47,7 @@ export default function Home() {
                   size="lg"
                   className="border-emerald-700/30 hover:bg-muted/80"
                 >
-                  <Link href="/doctors">Find Doctors</Link>
+                  <Link href="/doctors">Find Mentors</Link>
                 </Button>
               </div>
             </div>
@@ -55,7 +55,7 @@ export default function Home() {
             <div className="relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden">
               <Image
                 src="/banner.png"
-                alt="Doctor consultation"
+                alt="Mentor consultation"
                 fill
                 priority
                 className="object-cover md:pt-14 rounded-xl"
@@ -76,7 +76,7 @@ export default function Home() {
               How It Works
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Our platform makes healthcare accessible with just a few clicks
+              Our platform makes education accessible with just a few clicks
             </p>
           </div>
 
@@ -119,13 +119,13 @@ export default function Home() {
               variant="outline"
               className="bg-emerald-900/30 border-emerald-700/30 px-4 py-1 text-emerald-400 text-sm font-medium mb-4"
             >
-              Affordable Healthcare
+              Affordable Education
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-outline-white">
               Consultation Packages
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Choose the perfect consultation package that fits your healthcare
+              Choose the perfect consultation package that fits your education
               needs
             </p>
           </div>
@@ -194,7 +194,7 @@ export default function Home() {
               What Our Users Say
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Hear from patients and doctors who use our platform
+              Hear from Students and Mentors who use our platform
             </p>
           </div>
 
@@ -237,12 +237,12 @@ export default function Home() {
             <CardContent className="p-8 md:p-12 lg:p-16 relative overflow-hidden">
               <div className="max-w-2xl relative z-10">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                  Ready to take control of your healthcare?
+                  Ready to take control of your education?
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8">
-                  Join thousands of users who have simplified their healthcare
+                  Join thousands of users who have simplified their education
                   journey with our platform. Get started today and experience
-                  healthcare the way it should be.
+                  education the way it should be.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button
@@ -263,7 +263,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Decorative healthcare elements */}
+              {/* Decorative education elements */}
               <div className="absolute right-0 top-0 w-[300px] h-[300px] bg-emerald-800/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
               <div className="absolute left-0 bottom-0 w-[200px] h-[200px] bg-emerald-700/10 rounded-full blur-3xl -ml-10 -mb-10"></div>
             </CardContent>

@@ -315,7 +315,7 @@ export default function VideoCall({ sessionId, token }) {
                 {isAudioEnabled ? " Microphone on" : " Microphone off"}
               </p>
               <p className="text-muted-foreground text-sm mt-1">
-                When you're finished with your consultation, click the red
+                When you&apos;re finished with your consultation, click the red
                 button to end the call
               </p>
             </div>

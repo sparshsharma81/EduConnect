@@ -6,7 +6,7 @@ import { PageHeader } from "@/components/page-header";
 
 export const metadata = {
   title: "Admin Settings - MediMeet",
-  description: "Manage doctors, patients, and platform settings",
+  description: "Manage Mentors, Students, and platform settings",
 };
 
 export default async function AdminLayout({ children }) {
@@ -40,7 +40,7 @@ export default async function AdminLayout({ children }) {
             className="flex-1 md:flex md:items-center md:justify-start md:px-4 md:py-3 w-full"
           >
             <Users className="h-4 w-4 mr-2 hidden md:inline" />
-            <span>Doctors</span>
+            <span>Mentors</span>
           </TabsTrigger>
           <TabsTrigger
             value="payouts"

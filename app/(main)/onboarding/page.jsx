@@ -109,7 +109,7 @@ export default function OnboardingPage() {
               Join as a Patient
             </CardTitle>
             <CardDescription className="mb-4">
-              Book appointments, consult with doctors, and manage your
+              Book appointments, consult with Mentors, and manage your
               healthcare journey
             </CardDescription>
             <Button
@@ -137,7 +137,7 @@ export default function OnboardingPage() {
               <Stethoscope className="h-8 w-8 text-emerald-400" />
             </div>
             <CardTitle className="text-xl font-semibold text-white mb-2">
-              Join as a Doctor
+              Join as a Mentor
             </CardTitle>
             <CardDescription className="mb-4">
               Create your professional profile, set your availability, and
@@ -147,7 +147,7 @@ export default function OnboardingPage() {
               className="w-full mt-2 bg-emerald-600 hover:bg-emerald-700"
               disabled={loading}
             >
-              Continue as Doctor
+              Continue as Mentor
             </Button>
           </CardContent>
         </Card>
@@ -162,7 +162,7 @@ export default function OnboardingPage() {
         <CardContent className="pt-6">
           <div className="mb-6">
             <CardTitle className="text-2xl font-bold text-white mb-2">
-              Complete Your Doctor Profile
+              Complete Your Mentor Profile
             </CardTitle>
             <CardDescription>
               Please provide your professional details for verification
