@@ -75,16 +75,16 @@ export default async function Header() {
               </Link>
             )}
 
-{/* agar user ka role patient hoga..to me use appointment page pr leke jauga.... */}
-             {/* Patient Links */}
-            {user?.role === "PATIENT" && (
+{/* agar user ka role student hoga..to me use appointment page pr leke jauga.... */}
+             {/* Student Links */}
+            {user?.role === "STUDENT" && (
               <Link href="/appointments">
                 <Button
                   variant="outline"
                   className="hidden md:inline-flex items-center gap-2"
                 >
                   <Calendar className="h-4 w-4" /> 
-                  {/* ye hai patient k liye */}
+                    {/* ye hai student k liye */}
                   My Appointments
                 </Button>
                 <Button variant="ghost" className="md:hidden w-10 h-10 p-0">

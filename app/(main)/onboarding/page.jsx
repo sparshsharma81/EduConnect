@@ -106,11 +106,11 @@ export default function OnboardingPage() {
               <User className="h-8 w-8 text-emerald-400" />
             </div>
             <CardTitle className="text-xl font-semibold text-white mb-2">
-              Join as a Patient
+              Join as a Student
             </CardTitle>
             <CardDescription className="mb-4">
               Book appointments, consult with Mentors, and manage your
-              healthcare journey
+              education journey
             </CardDescription>
             <Button
               className="w-full mt-2 bg-emerald-600 hover:bg-emerald-700"
@@ -122,7 +122,7 @@ export default function OnboardingPage() {
                   Processing...
                 </>
               ) : (
-                "Continue as Patient"
+                "Continue as Student"
               )}
             </Button>
           </CardContent>

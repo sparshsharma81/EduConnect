@@ -36,7 +36,7 @@ export async function bookAppointment(formData) {
     });
 
     if (!patient) {
-      throw new Error("Patient not found");
+      throw new Error("Student not found");
     }
 
     // Parse form data
