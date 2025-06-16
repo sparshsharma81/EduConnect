@@ -1,0 +1,129 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  /// ye id hogi..bydefault clerk id ko generate karega... 
+  id                  String              @id @default(uuid())
+  clerkUserId         String              @unique
+  email               String              @unique
+  name                String?
+  /// above everything will be coming from clerk 
+  imageUrl            String?
+  role                UserRole            @default(UNASSIGNED)
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+  credits             Int                 @default(2)
+  specialty           String?
+  experience          Int?
+  credentialUrl       String?
+  description         String?
+  /// ye bhi ek enum hi hoga 
+  verificationStatus  VerificationStatus? @default(PENDING)
+  doctorAppointments  Appointment[]       @relation("DoctorAppointments")
+  patientAppointments Appointment[]       @relation("PatientAppointments")
+  availabilities      Availability[]
+  transactions        CreditTransaction[]
+  payouts             Payout[]
+}
+
+model Availability {
+  id        String     @id @default(uuid())
+  doctorId  String
+  startTime DateTime
+  endTime   DateTime
+  status    SlotStatus @default(AVAILABLE)
+  doctor    User       @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  @@index([doctorId, startTime])
+}
+
+model Appointment {
+  id                 String            @id @default(uuid())
+  patientId          String
+  doctorId           String
+  startTime          DateTime
+  endTime            DateTime
+  status             AppointmentStatus @default(SCHEDULED)
+  notes              String?
+  patientDescription String?
+  videoSessionId     String?
+  videoSessionToken  String?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+  doctor             User              @relation("DoctorAppointments", fields: [doctorId], references: [id])
+  patient            User              @relation("PatientAppointments", fields: [patientId], references: [id])
+
+  @@index([status, startTime])
+  @@index([doctorId, startTime])
+}
+
+model CreditTransaction {
+  id        String          @id @default(uuid())
+  userId    String
+  amount    Int
+  type      TransactionType
+  packageId String?
+  createdAt DateTime        @default(now())
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Payout {
+  id          String       @id @default(uuid())
+  doctorId    String
+  amount      Float
+  credits     Int
+  platformFee Float
+  netAmount   Float
+  paypalEmail String
+  status      PayoutStatus @default(PROCESSING)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  processedAt DateTime?
+  processedBy String?
+  doctor      User         @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  @@index([status, createdAt])
+  @@index([doctorId, status])
+}
+
+enum UserRole {
+  UNASSIGNED
+  PATIENT
+  DOCTOR
+  ADMIN
+}
+
+enum VerificationStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+enum SlotStatus {
+  AVAILABLE
+  BOOKED
+  BLOCKED
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+}
+
+enum TransactionType {
+  CREDIT_PURCHASE
+  APPOINTMENT_DEDUCTION
+  ADMIN_ADJUSTMENT
+}
+
+enum PayoutStatus {
+  PROCESSING
+  PROCESSED
+}

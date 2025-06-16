@@ -1,0 +1,194 @@
+NOW WE ARE BUILDING A DOCTOR APPOINTMENT PROJECT 
+HERE THE CUSTOMER CAN BOOK A APPONTMENT FROM THE DOCTOR AVAILABLILITY
+
+I AM BUILDING THIS PROJECT USING NEXT-JS AND SHADCN UI 
+
+NEXT JS IS SIMILAR TO REACT --- BUT IT CAN BE USED FOR BOTH FRONTEND AND BACKNED 
+AND SHADCN UI OFFER PREDEFINED BUILD IN COMPONENTS 
+
+
+first we just write npx-create-app@latest --- this will initilze a empty next js app 
+
+in order to run a npx app --- npm run dev 
+
+we will be using shadcn ui--- which has many predefined build in COMPONENTS 
+so basically we need not to put so much mechanical effort and build our components 
+--which we can copy paste in our app 
+
+so in order to use the shadcn ui --- we need to first install it 
+we can do it with 
+
+npx shadcn@latest init    -----THIS IS THE WAY OF INSTALLING SHADCN UI 
+
+and if we want to use a component ..let us say button 
+then we can use it with 
+
+npx shadcn@latest add button     ----THIS WAY..WE CAN INSTALL THE BUTTON AND USE IT 
+
+
+
+so in order to install any component..we can simply use npx -shadcn@latest add componet_name     ----USING THIS..WE CAN INSTALL ANY COMPONENT USING SHADCN 
+
+now after we have installed the button...we will be using the dark mode themes 
+so for that ...
+
+
+npx install next-themes 
+
+
+
+now after adding them...now we are adding 
+npx shadcn@latest add alert badge card dialog input label select separator sonner tabs textarea
+
+
+now till now ..we have used the header and footer component with the implementation of tailwind and shadcn ui 
+so now its time to work on with AUTHENTICATION 
+
+so for that...we can use clerk
+
+CLERK --- IT IS THE MOST COMPREHENSIVE USER MANAGEMENT PLATFORM 
+
+GREAT...NOW AFTER CREATING THE AUTHENTICATION SITE ON CLERK...WE CAN CREATE A SIGN IN COMPONENT -- 
+
+BASICALLY AFTER CREATING THAT..WE CAN JUST 
+npm install @clerk/nextjs 
+
+use this to install 
+
+
+if in case it fails..as we are using react 19 ...so chances that it might get fail 
+so we can use 
+npm install @clerk/nextjs --legacy-peer-deps 
+
+so basically after installing clerk..we need to set up the environment variables...
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_bXV0dWFsLW1vbmFyY2gtNjYuY2xlcmsuYWNjb3VudHMuZGV2JA
+CLERK_SECRET_KEY=sk_test_HSksPPZGnRZzQUlbLh3bSjXLkEBv9lveydcz7icaAR
+
+
+so after doing it..we have to use the this
+ import { clerkMiddleware } from '@clerk/nextjs/server';
+
+export default clerkMiddleware();
+
+export const config = {
+  matcher: [
+    // Skip Next.js internals and all static files, unless found in search params
+    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+    // Always run for API routes
+    '/(api|trpc)(.*)',
+  ],
+}; this is the middleware.ts which runs before our application is running 
+--this is the code which will run so that clerk can work properly
+
+we have to create a file called middleware.js ---and this is where we are writing the code which will 
+allow only specific users to enter into our application 
+
+
+
+//now basically in order to use the dark theme of clerk..we have to downlaod it..which we can using the 
+npm install @clerk/themes 
+
+and if it is not installing..we need to add npm install @clerk/themes --legacy-peer 
+
+
+
+
+ <SignedOut>
+              <SignInButton />
+              <SignUpButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn> 
+            this is the basic of clerk 
+            which simply shows when the user is signed out ..then we will show sign in button and sign up button 
+            and when the user is signed in ./
+            then we will show signed in button 
+
+
+in next --- basically --- if we want to create a folder..then we can create it with () these symbols 
+basically --- if we create any folder inside the app..then it will form a route..so in order to prevent it..we have to create a folder like this 
+
+
+
+
+///now in the present..we have designed the components..and in order to connect our database ---neon
+we are using prisma... 
+prisma is an orm which allows us to write simplified queries and write orms///
+
+basically prisma writes small queries ....
+
+
+///so in order to install prisma -- we have to use 
+npm install -D prisma 
+
+
+npm install -D prisma --legacy-peer-deps 
+
+
+after that 
+npx prisma init ---- it willl initilize prisma 
+
+
+
+in order to use prisma..we should 
+npx prisma generate
+
+npm i @prisma/client --legacy-peer-deps
+
+now in order to push...
+npx prisma migrate dev 
+
+so now we have added the database--using prisma 
+
+now it is the time to add the subscrition thing
+basically ye clerk k new update me aaya hai..subscription thing...
+
+
+
+
+
+Great..now after creating the paymet thing..we can now create server actions 
+
+
+server actions in next js is like backend...
+
+
+this npm i date-fns --- it is a popular library for date MANAGEMENT
+basically in our project we can use it to properly find the allcated date in the subscription plans..
+
+
+
+ROUTING IN NEXTJS 
+
+[folder] --- dynamic route segment 
+[ ...folder] --- catch-all route segment 
+[[ ...folder]] -- optional catch -all route segment 
+
+
+
+great..now we have build the databbase model...basic things..
+now we 
+'
+
+will install the form librabry to manage the form 
+
+npm i react-hook-form zod @hookform/resolver
+//react-hook-form will help us to manage the form without writing a lot of things...
+zod will help us to manage and create the schema of our app --writing validatations ..providing erroros 
+
+@hookform/resolver --- it will simply help us to connect to react-hook-form with zod 
+
+
+npm i react-spinner ----- basically this is the react spinnner ...
+
+
+
+now in order to book appointment..we will be using vonage...
+vonage is used for video call 
+
+npm i @vonage/auth @vonage/server-sdk 
+ this vonage/auth is basically which we have entered in the env file 
+ and the vonage/server-sdk will help us to generate the session id 
+ 
