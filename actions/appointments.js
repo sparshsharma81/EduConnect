@@ -17,7 +17,7 @@ const options = {};
 const vonage = new Vonage(credentials, options);
 
 /**
- * Book a new appointment with a doctor
+ * Book a new appointment with a Mentor
  */
 export async function bookAppointment(formData) {
   const { userId } = await auth();
@@ -47,10 +47,10 @@ export async function bookAppointment(formData) {
 
     // Validate input
     if (!doctorId || !startTime || !endTime) {
-      throw new Error("Doctor, start time, and end time are required");
+      throw new Error("Mentor, start time, and end time are required");
     }
 
-    // Check if the doctor exists and is verified
+    // Check if the Mentor exists and is verified
     const doctor = await db.user.findUnique({
       where: {
         id: doctorId,
@@ -60,10 +60,10 @@ export async function bookAppointment(formData) {
     });
 
     if (!doctor) {
-      throw new Error("Doctor not found or not verified");
+      throw new Error("Mentor not found or not verified");
     }
 
-    // Check if the patient has enough credits (2 credits per appointment)
+    // Check if the Student has enough credits (2 credits per appointment)
     if (patient.credits < 2) {
       throw new Error("Insufficient credits to book an appointment");
     }
@@ -112,7 +112,7 @@ export async function bookAppointment(formData) {
     // Create a new Vonage Video API session
     const sessionId = await createVideoSession();
 
-    // Deduct credits from patient and add to doctor
+    // Deduct credits from Student and add to Mentor
     const { success, error } = await deductCreditsForAppointment(
       patient.id,
       doctor.id
@@ -122,7 +122,7 @@ export async function bookAppointment(formData) {
       throw new Error(error || "Failed to deduct credits");
     }
 
-    // Create the appointment with the video session ID
+    // Create the appointment with the video session ID and deduct credits from Student
     const appointment = await db.appointment.create({
       data: {
         patientId: patient.id,
@@ -194,7 +194,7 @@ export async function generateVideoToken(formData) {
       throw new Error("Appointment not found");
     }
 
-    // Verify the user is either the doctor or the patient for this appointment
+    // Verify the user is either the Mentor or the Student for this appointment
     if (appointment.doctorId !== user.id && appointment.patientId !== user.id) {
       throw new Error("You are not authorized to join this call");
     }
@@ -230,7 +230,7 @@ export async function generateVideoToken(formData) {
 
     // Generate the token with appropriate role and expiration
     const token = vonage.video.generateClientToken(appointment.videoSessionId, {
-      role: "publisher", // Both doctor and patient can publish streams
+      role: "publisher", // Both Mentor and Student can publish streams
       expireTime: expirationTime,
       data: connectionData,
     });
@@ -257,7 +257,7 @@ export async function generateVideoToken(formData) {
 }
 
 /**
- * Get doctor by ID
+ * Get Mentor by ID
  */
 export async function getDoctorById(doctorId) {
   try {
@@ -270,13 +270,13 @@ export async function getDoctorById(doctorId) {
     });
 
     if (!doctor) {
-      throw new Error("Doctor not found");
+      throw new Error("Mentor not found");
     }
 
     return { doctor };
   } catch (error) {
-    console.error("Failed to fetch doctor:", error);
-    throw new Error("Failed to fetch doctor details");
+    console.error("Failed to fetch Mentor:", error);
+    throw new Error("Failed to fetch Mentor details");
   }
 }
 
@@ -295,7 +295,7 @@ export async function getAvailableTimeSlots(doctorId) {
     });
 
     if (!doctor) {
-      throw new Error("Doctor not found or not verified");
+      throw new Error("Mentor not found or not verified");
     }
 
     // Fetch a single availability record
@@ -307,14 +307,14 @@ export async function getAvailableTimeSlots(doctorId) {
     });
 
     if (!availability) {
-      throw new Error("No availability set by doctor");
+      throw new Error("No availability set by Mentor");
     }
 
     // Get the next 4 days
     const now = new Date();
     const days = [now, addDays(now, 1), addDays(now, 2), addDays(now, 3)];
 
-    // Fetch existing appointments for the doctor over the next 4 days
+    // Fetch existing appointments for the Mentor over the next 4 days
     const lastDay = endOfDay(days[3]);
     const existingAppointments = await db.appointment.findMany({
       where: {

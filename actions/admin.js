@@ -48,7 +48,7 @@ export async function getPendingDoctors() {
 
     return { doctors: pendingDoctors };
   } catch (error) {
-    throw new Error("Failed to fetch pending doctors");
+    throw new Error("Failed to fetch pending Mentors");
   }
 }
 
@@ -72,13 +72,13 @@ export async function getVerifiedDoctors() {
 
     return { doctors: verifiedDoctors };
   } catch (error) {
-    console.error("Failed to get verified doctors:", error);
-    return { error: "Failed to fetch verified doctors" };
+    console.error("Failed to get verified Mentor:", error);
+    return { error: "Failed to fetch verified Mentor" };
   }
 }
 
 /**
- * Updates a doctor's verification status
+ * Updates a Mentor's verification status
  */
 export async function updateDoctorStatus(formData) {
   const isAdmin = await verifyAdmin();
@@ -104,13 +104,13 @@ export async function updateDoctorStatus(formData) {
     revalidatePath("/admin");
     return { success: true };
   } catch (error) {
-    console.error("Failed to update doctor status:", error);
-    throw new Error(`Failed to update doctor status: ${error.message}`);
+    console.error("Failed to update Mentor status:", error);
+    throw new Error(`Failed to update Mentor status: ${error.message}`);
   }
 }
 
 /**
- * Suspends or reinstates a doctor
+ * Suspends or reinstates a Mentor
  */
 export async function updateDoctorActiveStatus(formData) {
   const isAdmin = await verifyAdmin();
@@ -120,7 +120,7 @@ export async function updateDoctorActiveStatus(formData) {
   const suspend = formData.get("suspend") === "true";
 
   if (!doctorId) {
-    throw new Error("Doctor ID is required");
+    throw new Error("Mentor ID is required");
   }
 
   try {
@@ -138,8 +138,8 @@ export async function updateDoctorActiveStatus(formData) {
     revalidatePath("/admin");
     return { success: true };
   } catch (error) {
-    console.error("Failed to update doctor active status:", error);
-    throw new Error(`Failed to update doctor status: ${error.message}`);
+    console.error("Failed to update Mentor active status:", error);
+    throw new Error(`Failed to update Mentor status: ${error.message}`);
   }
 }
 
@@ -179,7 +179,7 @@ export async function getPendingPayouts() {
 }
 
 /**
- * Approves a payout request and deducts credits from doctor's account
+ * Approves a payout request and deducts credits from Mentor's account
  */
 export async function approvePayout(formData) {
   const isAdmin = await verifyAdmin();
@@ -215,7 +215,7 @@ export async function approvePayout(formData) {
 
     // Check if doctor has enough credits
     if (payout.doctor.credits < payout.credits) {
-      throw new Error("Doctor doesn't have enough credits for this payout");
+      throw new Error("Mentor doesn't have enough credits for this payout");
     }
 
     // Process the payout in a transaction
