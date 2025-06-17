@@ -25,7 +25,7 @@ export default async function Header() {
                <Link href="/" className="flex items-center gap-2 cursor-pointer">
             <Image
             src="/logo112.png"
-            alt="Medimeet Logo"
+            alt="EduConnect Logo"
             width={200}
             height={60}
             className="h-20 w-auto object-contain"
