@@ -24,11 +24,11 @@ export default async function Header() {
           <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
                <Link href="/" className="flex items-center gap-2 cursor-pointer">
             <Image
-            src="/logo-single.png"
+            src="/logo111.png"
             alt="Medimeet Logo"
             width={200}
             height={60}
-            className="h-10 w-auto object-contain"
+            className="h-20 w-auto object-contain"
           />
             </Link>
 
