@@ -20,7 +20,7 @@ export default async function Header() {
     await checkAndAllocateCredits(user);
   }
     return (
-        <header className="fixed top-0 left-0 right-0 w-full border-b bg-white/95 shadow-sm backdrop-blur-md z-50">
+      <header className="fixed top-0 w-full border-b bg-background/90 backdrop-blur-md z-30 supports-[backdrop-filter]:bg-background/80">
           <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
                <Link href="/" className="flex items-center gap-2 cursor-pointer">
             <Image
