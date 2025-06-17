@@ -28,7 +28,7 @@ export default async function Header() {
             alt="EduConnect Logo"
             width={200}
             height={60}
-            className="h-20 w-auto object-contain"
+            className="h-22 w-auto object-contain"
           />
             </Link>
 
