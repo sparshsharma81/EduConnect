@@ -111,17 +111,14 @@ export async function checkAndAllocateCredits(user) {
       return updatedUser;
     });
 
-    // Revalidate relevant paths to reflect updated credit balance
-    revalidatePath("/doctors");
-    revalidatePath("/appointments");
-
-    return updatedUser;
+    // Return the updated user and a flag indicating revalidation is needed
+    return { user: updatedUser, needsRevalidation: true };
   } catch (error) {
     console.error(
       "Failed to check subscription and allocate credits:",
       error.message
     );
-    return null;
+    return { user: null, needsRevalidation: false };
   }
 }
 
