@@ -65,17 +65,23 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative h-[600px] rounded-2xl overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <Image
-                src="/banner5.jpg"
-                alt="Mentor consultation"
-                fill
-                priority
-                className="rounded-2xl object-cover transform group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="object cover absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
-            </div>
+            <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden group">
+  {/* Hover gradient */}
+  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+
+  {/* Image */}
+  <Image
+    src="/banner5.jpg"
+    alt="Mentor consultation"
+    fill
+    priority
+    className="transition-transform duration-500 transform group-hover:scale-105 rounded-2xl object-contain sm:object-cover object-center z-0"
+  />
+
+  {/* Top gradient overlay */}
+  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent z-20" />
+</div>
+
           </div>
         </div>
       </section>
