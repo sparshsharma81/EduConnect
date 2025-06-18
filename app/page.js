@@ -68,7 +68,7 @@ export default function Home() {
             <div className="relative h-[600px] rounded-2xl overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <Image
-                src="/banner.png"
+                src="/banner3.png"
                 alt="Mentor consultation"
                 fill
                 priority
