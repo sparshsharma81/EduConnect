@@ -56,7 +56,7 @@ export default function Home() {
               <div className="flex items-center space-x-8 pt-4">
                 <div className="flex items-center space-x-2 bg-indigo-900/20 px-4 py-2 rounded-full">
                   <Users className="h-5 w-5 text-indigo-400" />
-                  <span className="text-muted-foreground">10k+ Active Students</span>
+                  <span className="text-muted-foreground">10k+ Active Students  </span>
                 </div>
                 <div className="flex items-center space-x-2 bg-indigo-900/20 px-4 py-2 rounded-full">
                   <Shield className="h-5 w-5 text-indigo-400" />
@@ -68,13 +68,13 @@ export default function Home() {
             <div className="relative h-[600px] rounded-2xl overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <Image
-                src="/banner3.png"
+                src="/banner5.jpg"
                 alt="Mentor consultation"
                 fill
                 priority
-                className="object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                className="rounded-2xl object-cover transform group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+              <div className="object cover absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function Home() {
             {features.map((feature, index) => (
               <Card
                 key={index}
-                className="group bg-gradient-to-br from-indigo-900/20 via-purple-900/20 to-indigo-900/20 border border-indigo-800/20 hover:border-indigo-500/40 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-indigo-500/20 hover:shadow-2xl rounded-2xl backdrop-blur-sm"
+                className="group bg-gradient-to-br from-blue-200/20 via-purple-900/20 to-pink-300/20 border border-indigo-800/20 hover:border-pink-200/40 transform transition-all duration-200 hover:scale-[1.03] hover:shadow-yellow-200/20 hover:shadow-3xl rounded-2xl backdrop-blur-sm"
               >
                 <CardHeader className="pb-2">
                   <div className="bg-gradient-to-br from-indigo-900/30 to-purple-900/30 p-4 rounded-xl w-fit mb-4 transition-colors duration-300 group-hover:from-indigo-800/40 group-hover:to-purple-800/40">
@@ -131,8 +131,8 @@ export default function Home() {
       {/* Stats Section - New Addition */}
       <section className="py-20 relative">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-indigo-900/20 to-purple-900/20 p-8 rounded-2xl border border-indigo-800/20 backdrop-blur-sm">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
+            <div className="bg-gradient-to-br from-indigo-900/20 to-purple-500/20 p-8 rounded-2xl border border-indigo-800/20 backdrop-blur-sm ">
               <div className="flex items-center space-x-4">
                 <div className="bg-indigo-900/30 p-3 rounded-xl">
                   <Star className="h-6 w-6 text-indigo-400" />
@@ -143,7 +143,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-indigo-900/20 to-purple-900/20 p-8 rounded-2xl border border-indigo-800/20 backdrop-blur-sm">
+            <div className="bg-gradient-to-br from-indigo-900/20 to-purple-500/20 p-8 rounded-2xl border border-indigo-800/20 backdrop-blur-sm">
               <div className="flex items-center space-x-4">
                 <div className="bg-indigo-900/30 p-3 rounded-xl">
                   <Zap className="h-6 w-6 text-indigo-400" />
@@ -154,7 +154,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-indigo-900/20 to-purple-900/20 p-8 rounded-2xl border border-indigo-800/20 backdrop-blur-sm">
+            <div className="bg-gradient-to-br from-indigo-900/20 to-purple-500/20 p-8 rounded-2xl border border-indigo-800/20 backdrop-blur-sm">
               <div className="flex items-center space-x-4">
                 <div className="bg-indigo-900/30 p-3 rounded-xl">
                   <Target className="h-6 w-6 text-indigo-400" />
