@@ -77,7 +77,7 @@ export default async function Header() {
 
 {/* agar user ka role student hoga..to me use appointment page pr leke jauga.... */}
              {/* Student Links */}
-            {user?.role === "STUDENT" && (
+            {user?.role === "PATIENT" && (
               <Link href="/appointments">
                 <Button
                   variant="outline"
