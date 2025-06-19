@@ -16,6 +16,9 @@ const nextConfig = {
       },
     ];
   },
+  images: {
+    domains: ['img.clerk.com'], // ✅ Added for loading external images
+  },
 };
 
 export default nextConfig;
