@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
                 {/* container basically ek max width provide karta hai according to the size of the screen --basically app responsive ban sake */}
                 {/* mx-auto --- this will insure that everything will be pushed inside the middle  */}
                 {/* 4 rem padding -- 4 -- 1 rem -- 16px  */}
-                <p>Made with Next-js from sparsh sharma</p>
+                <p>Made By Sparsh Sharma</p>
               </div>
             </footer>
           </ThemeProvider>
