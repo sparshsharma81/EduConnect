@@ -315,7 +315,7 @@ export default function Home() {
                   <Button
                     asChild
                     size="lg"
-                    className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 transition-all duration-300 text-lg px-8 py-6 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40"
+                    className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40"
                   >
                     <Link href="/sign-up">Get Started Now</Link>
                   </Button>
