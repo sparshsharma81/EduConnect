@@ -38,7 +38,7 @@ export default function Home() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40"
+                  className="bg-gradient-to-r from-orange-400 via-pink-400 via-sky-400 to-violet-400 text-white shadow-lg hover:from-orange-500 hover:via-pink-500 hover:via-sky-500 hover:to-violet-500 transition-all duration-300"
                 >
                   <Link href="/onboarding">
                     Start Your Journey <ArrowRight className="ml-2 h-4 w-4" />
