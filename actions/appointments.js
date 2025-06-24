@@ -28,7 +28,8 @@ export async function bookAppointment(formData) {
 
   try {
     // Get the patient user
-    const patient = await db.user.findUnique({
+    const patient = await db.user.findFirst({ 
+      //previously it was findunique..but it was not working
       where: {
         clerkUserId: userId,
         role: "PATIENT",
