@@ -90,7 +90,7 @@ export function AvailabilitySettings({ slots }) {
   };
 
   return (
-    <Card className="border-blue-900/20">
+    <Card className="border-white">
       <CardHeader>
         <CardTitle className="text-xl font-bold text-white flex items-center">
           <Clock className="h-5 w-5 mr-2 text-blue-400" />
@@ -119,7 +119,7 @@ export function AvailabilitySettings({ slots }) {
                   {slots.map((slot) => (
                     <div
                       key={slot.id}
-                      className="flex items-center p-3 rounded-md bg-muted/20 border border-blue-900/20"
+                      className="flex items-center p-3 rounded-md bg-muted/20 border border-white-900/20"
                     >
                       <div className="bg-blue-900/20 p-2 rounded-full mr-3">
                         <Clock className="h-4 w-4 text-blue-400" />
@@ -150,7 +150,7 @@ export function AvailabilitySettings({ slots }) {
         ) : (
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4 border border-blue-900/20 rounded-md p-4"
+            className="space-y-4 border border-white-200/20 rounded-md p-4"
           >
             <h3 className="text-lg font-medium text-white mb-2">
               Set Daily Availability
@@ -165,7 +165,7 @@ export function AvailabilitySettings({ slots }) {
                   {...register("startTime", {
                     required: "Start time is required",
                   })}
-                  className="bg-background border-blue-900/20"
+                  className="bg-background white-blue-900/20"
                 />
                 {errors.startTime && (
                   <p className="text-sm font-medium text-red-500">
@@ -180,7 +180,7 @@ export function AvailabilitySettings({ slots }) {
                   id="endTime"
                   type="time"
                   {...register("endTime", { required: "End time is required" })}
-                  className="bg-background border-blue-900/20"
+                  className="bg-background border-white-900/20"
                 />
                 {errors.endTime && (
                   <p className="text-sm font-medium text-red-500">
