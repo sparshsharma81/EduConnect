@@ -23,14 +23,14 @@ export default async function DoctorsPage() {
 
         <CardContent className="relative z-10 p-6 flex flex-col items-center justify-center text-center h-full">
           {/* Icon container */}
-          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-emerald-700/30 to-emerald-900/30 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
-            <div className="text-emerald-300 group-hover:text-emerald-100 transition-colors duration-300">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-pink-700 to-blue-800 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+            <div className="text-blue-200 group-hover:text-blue-100 transition-colors duration-300">
               {specialty.icon}
             </div>
           </div>
 
           {/* Specialty Name */}
-          <h3 className="font-semibold text-white text-lg group-hover:text-emerald-100 transition-colors duration-300">
+          <h3 className="font-semibold text-white text-lg group-hover:text-blue-100 transition-colors duration-300">
             {specialty.name}
           </h3>
         </CardContent>
@@ -38,6 +38,7 @@ export default async function DoctorsPage() {
     </Link>
   ))}
 </div>
+{/*       in this update..the colour is changed from green--emerald to blueish pink */}
 
 
     </>
