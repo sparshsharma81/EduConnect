@@ -98,7 +98,7 @@ export default function OnboardingPage() {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card
-          className="border-emerald-900/20 hover:border-pink-700/40 cursor-pointer transition-all"
+          className="border-blue-900/20 hover:border-pink-700/40 cursor-pointer transition-all"
           onClick={() => !loading && handlePatientSelection()}
         >
           <CardContent className="pt-6 pb-6 flex flex-col items-center text-center">
@@ -129,7 +129,7 @@ export default function OnboardingPage() {
         </Card>
 
         <Card
-          className="border-emerald-900/20 hover:border-emerald-700/40 cursor-pointer transition-all"
+          className="border-blue-900/20 hover:border-blue-700/40 cursor-pointer transition-all"
           onClick={() => !loading && setStep("doctor-form")}
         >
           <CardContent className="pt-6 pb-6 flex flex-col items-center text-center">
@@ -158,7 +158,7 @@ export default function OnboardingPage() {
   // Doctor registration form
   if (step === "doctor-form") {
     return (
-      <Card className="border-emerald-900/20">
+      <Card className="border-pink-900/20">
         <CardContent className="pt-6">
           <div className="mb-6">
             <CardTitle className="text-2xl font-bold text-white mb-2">
@@ -259,7 +259,7 @@ export default function OnboardingPage() {
               </Button>
               <Button
                 type="submit"
-                className="bg-emerald-600 hover:bg-emerald-700"
+                className="bg-gradient-to-r from-pink-600 to-blue-700 hover:from-blue-500 hover:to-pink-600 text-white"
                 disabled={loading}
               >
                 {loading ? (
