@@ -43,7 +43,7 @@ export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="bg-muted/20 p-4 rounded-lg border border-emerald-900/20 space-y-3">
+      <div className="bg-muted/20 p-4 rounded-lg border border-white space-y-3">
         <div className="flex items-center">
           <Calendar className="h-5 w-5 text-pink-400 mr-2" />
           <span className="text-white font-medium">
@@ -71,7 +71,7 @@ export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
           placeholder="Please provide any details about your Doubt or what you'd like to discuss in the appointment..."
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="bg-background border-emerald-900/20 h-32"
+          className="bg-background border-white h-32"
         />
         <p className="text-sm text-muted-foreground">
           This information will be shared with the Mentor before your
@@ -85,7 +85,7 @@ export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
           variant="outline"
           onClick={onBack}
           disabled={loading}
-          className="border-emerald-900/30"
+          className="border-white"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Change Time Slot
@@ -93,7 +93,7 @@ export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
         <Button
           type="submit"
           disabled={loading}
-          className="bg-gradient-to-r from-pink-700 to-blue-600 hover:bg-emerald-700 text-white"
+          className="bg-gradient-to-r from-pink-600 to-blue-700 hover:from-blue-500 hover:to-pink-600 text-white"
         >
           {loading ? (
             <>
