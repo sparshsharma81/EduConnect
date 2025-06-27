@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="bg-background">
       {/* Hero Section with Enhanced Design */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-indigo-950 via-background to-purple-950">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-indigo-950 via-background to-purple-950 pt-16">
         {/* Animated background elements */}
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background" />
