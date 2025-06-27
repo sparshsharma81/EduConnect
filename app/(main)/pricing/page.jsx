@@ -23,7 +23,7 @@ export default async function PricingPage() {
       <div className="max-w-full mx-auto mb-12 text-center">
         <Badge
           variant="outline"
-          className="bg-emerald-900/30 border-emerald-700/30 px-4 py-1 text-emerald-400 text-sm font-medium mb-4"
+          className="bg-blue-900/30 border-sky-700/30 px-4 py-1 text-blue-400 text-sm font-medium mb-4"
         >
           Affordable Education
         </Badge>
