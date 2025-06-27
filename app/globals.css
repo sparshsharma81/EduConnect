@@ -124,7 +124,7 @@
 
 
 @utility gradient {
-  @apply bg-gradient-to-b from-emerald-500 to-teal-400;
+  @apply bg-gradient-to-b from-pink-500 to-blue-400;
 }
 /* bg-gradient-to-b iska matlab hai top to bottom  */
 
