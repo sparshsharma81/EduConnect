@@ -98,12 +98,12 @@ export default function OnboardingPage() {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card
-          className="border-emerald-900/20 hover:border-emerald-700/40 cursor-pointer transition-all"
+          className="border-emerald-900/20 hover:border-pink-700/40 cursor-pointer transition-all"
           onClick={() => !loading && handlePatientSelection()}
         >
           <CardContent className="pt-6 pb-6 flex flex-col items-center text-center">
-            <div className="p-4 bg-emerald-900/20 rounded-full mb-4">
-              <User className="h-8 w-8 text-emerald-400" />
+            <div className="p-4 bg-pink-900 rounded-full mb-4">
+              <User className="h-8 w-8 text-pink-100" />
             </div>
             <CardTitle className="text-xl font-semibold text-white mb-2">
               Join as a Student
@@ -113,7 +113,7 @@ export default function OnboardingPage() {
               education journey
             </CardDescription>
             <Button
-              className="w-full mt-2 bg-emerald-600 hover:bg-emerald-700"
+              className="w-full mt-2 bg-gradient-to-r from-pink-500 to-blue-600 hover:bg-pink-700 text-white"
               disabled={loading}
             >
               {loading ? (
@@ -133,8 +133,8 @@ export default function OnboardingPage() {
           onClick={() => !loading && setStep("doctor-form")}
         >
           <CardContent className="pt-6 pb-6 flex flex-col items-center text-center">
-            <div className="p-4 bg-emerald-900/20 rounded-full mb-4">
-              <Stethoscope className="h-8 w-8 text-emerald-400" />
+            <div className="p-4 bg-blue-900 rounded-full mb-4">
+              <Stethoscope className="h-8 w-8 text-blue-100" />
             </div>
             <CardTitle className="text-xl font-semibold text-white mb-2">
               Join as a Mentor
@@ -144,7 +144,7 @@ export default function OnboardingPage() {
               provide consultations
             </CardDescription>
             <Button
-              className="w-full mt-2 bg-emerald-600 hover:bg-emerald-700"
+              className="w-full mt-2 bg-gradient-to-r from-blue-500 to-pink-600 hover:bg-pink-700 text-white"
               disabled={loading}
             >
               Continue as Mentor
