@@ -77,7 +77,7 @@ export function PendingPayouts({ payouts }) {
 
   return (
     <div>
-      <Card className="bg-muted/20 border-emerald-900/20">
+      <Card className="bg-muted/20 border-blue-900/20">
         <CardHeader>
           <CardTitle className="text-xl font-bold text-white">
             Pending Payouts
@@ -96,13 +96,13 @@ export function PendingPayouts({ payouts }) {
               {payouts.map((payout) => (
                 <Card
                   key={payout.id}
-                  className="bg-background border-emerald-900/20 hover:border-emerald-700/30 transition-all"
+                  className="bg-background border-blue-900/20 hover:border-pink-900/30 transition-all"
                 >
                   <CardContent className="p-4">
                     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                       <div className="flex items-start gap-3">
-                        <div className="bg-muted/20 rounded-full p-2 mt-1">
-                          <User className="h-5 w-5 text-emerald-400" />
+                        <div className="bg-muted/20 rounded-full p-2 mt-1 bg-gradient-to-r from-pink-500 to-blue-600 ">
+                          <User className="h-5 w-5 text-pink-100" />
                         </div>
                         <div className="flex-1">
                           <h3 className="font-medium text-white">
@@ -113,14 +113,14 @@ export function PendingPayouts({ payouts }) {
                           </p>
                           <div className="flex flex-wrap items-center gap-4 mt-2 text-sm text-muted-foreground">
                             <div className="flex items-center">
-                              <DollarSign className="h-4 w-4 mr-1 text-emerald-400" />
+                              <DollarSign className="h-4 w-4 mr-1 text-blue-400" />
                               <span>
                                 {payout.credits} credits • $
                                 {payout.netAmount.toFixed(2)}
                               </span>
                             </div>
                             <div className="flex items-center">
-                              <Mail className="h-4 w-4 mr-1 text-emerald-400" />
+                              <Mail className="h-4 w-4 mr-1 text-blue-300" />
                               <span className="text-xs">
                                 {payout.paypalEmail}
                               </span>
@@ -147,14 +147,14 @@ export function PendingPayouts({ payouts }) {
                             variant="outline"
                             size="sm"
                             onClick={() => handleViewDetails(payout)}
-                            className="border-emerald-900/30 hover:bg-muted/80"
+                            className="border-pink-900/30 hover:bg-muted/80"
                           >
                             View Details
                           </Button>
                           <Button
                             size="sm"
                             onClick={() => handleApprovePayout(payout)}
-                            className="bg-emerald-600 hover:bg-emerald-700"
+                            className="bg-gradient-to-r from-pink-600 to-blue-700 hover:from-blue-500 hover:to-pink-600 text-white"
                           >
                             <Check className="h-4 w-4 mr-1" />
                             Approve
@@ -187,7 +187,7 @@ export function PendingPayouts({ payouts }) {
               {/* Mentor Information */}
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <Stethoscope className="h-5 w-5 text-emerald-400" />
+                  <Stethoscope className="h-5 w-5 text-pink-400" />
                   <h3 className="text-white font-medium">Mentor Information</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -227,10 +227,10 @@ export function PendingPayouts({ payouts }) {
               {/* Payout Information */}
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <DollarSign className="h-5 w-5 text-emerald-400" />
+                  <DollarSign className="h-5 w-5 text-pink-400" />
                   <h3 className="text-white font-medium">Payout Details</h3>
                 </div>
-                <div className="bg-muted/20 p-4 rounded-lg border border-emerald-900/20 space-y-3">
+                <div className="bg-muted/20 p-4 rounded-lg border border-pink-900/20 space-y-3">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">
                       Credits to pay out:
@@ -255,13 +255,13 @@ export function PendingPayouts({ payouts }) {
                       -${selectedPayout.platformFee.toFixed(2)}
                     </span>
                   </div>
-                  <div className="border-t border-emerald-900/20 pt-3 flex justify-between font-medium">
+                  <div className="border-t border-blue-900/20 pt-3 flex justify-between font-medium">
                     <span className="text-white">Net payout:</span>
-                    <span className="text-emerald-400">
+                    <span className="text-pink-400">
                       ${selectedPayout.netAmount.toFixed(2)}
                     </span>
                   </div>
-                  <div className="border-t border-emerald-900/20 pt-3">
+                  <div className="border-t border-pink-900/20 pt-3">
                     <p className="text-sm font-medium text-muted-foreground">
                       PayPal Email
                     </p>
@@ -288,7 +288,7 @@ export function PendingPayouts({ payouts }) {
               <Button
                 variant="outline"
                 onClick={closeDialogs}
-                className="border-emerald-900/30"
+                className="border-pink-900/30"
               >
                 Close
               </Button>
@@ -297,7 +297,7 @@ export function PendingPayouts({ payouts }) {
                 disabled={
                   selectedPayout.doctor.credits < selectedPayout.credits
                 }
-                className="bg-emerald-600 hover:bg-emerald-700"
+                className="bg-gradient-to-r from-pink-500 to-blue-600 text-white"
               >
                 <Check className="h-4 w-4 mr-1" />
                 Approve Payout
@@ -339,7 +339,7 @@ export function PendingPayouts({ payouts }) {
                 </AlertDescription>
               </Alert>
 
-              <div className="bg-muted/20 p-4 rounded-lg border border-emerald-900/20">
+              <div className="bg-muted/20 p-4 rounded-lg border border-pink-900/20">
                 <div className="flex justify-between mb-2">
                   <span className="text-muted-foreground">Mentor:</span>
                   <span className="text-white">
@@ -348,7 +348,7 @@ export function PendingPayouts({ payouts }) {
                 </div>
                 <div className="flex justify-between mb-2">
                   <span className="text-muted-foreground">Amount to pay:</span>
-                  <span className="text-emerald-400 font-medium">
+                  <span className="text-pink-400 font-medium">
                     ${selectedPayout.netAmount.toFixed(2)}
                   </span>
                 </div>
@@ -368,14 +368,14 @@ export function PendingPayouts({ payouts }) {
                 variant="outline"
                 onClick={() => setShowApproveDialog(false)}
                 disabled={loading}
-                className="border-emerald-900/30"
+                className="border-pink-900/30"
               >
                 Cancel
               </Button>
               <Button
                 onClick={confirmApproval}
                 disabled={loading}
-                className="bg-emerald-600 hover:bg-emerald-700"
+                className="bg-gradient-to-r from-pink-500 to-blue-600 text-white"
               >
                 {loading ? (
                   <>
