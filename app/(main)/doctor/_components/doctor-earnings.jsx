@@ -77,7 +77,7 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
     <div className="space-y-6">
       {/* Earnings Overview */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card className="border-blue-900/20">
+        <Card className="border-white">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -98,7 +98,7 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
           </CardContent>
         </Card>
 
-        <Card className="border-blue-900/20">
+        <Card className="border-white">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -114,7 +114,7 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
           </CardContent>
         </Card>
 
-        <Card className="border-blue-900/20">
+        <Card className="border-white">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -133,7 +133,7 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
           </CardContent>
         </Card>
 
-        <Card className="border-blue-900/20">
+        <Card className="border-white">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -151,7 +151,7 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
       </div>
 
       {/* Payout Section */}
-      <Card className="border-blue-900/20">
+      <Card className="border-white">
         <CardHeader>
           <CardTitle className="text-xl font-bold text-white flex items-center">
             <CreditCard className="h-5 w-5 mr-2 text-blue-400" />
@@ -160,7 +160,7 @@ export function DoctorEarnings({ earnings, payouts = [] }) {
         </CardHeader>
         <CardContent className="space-y-4">
           {/* Current Payout Status */}
-          <div className="bg-muted/20 p-4 rounded-lg border border-blue-900/20">
+          <div className="bg-muted/20 p-4 rounded-lg border border-white-200/20">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-lg font-medium text-white">
                 Available for Payout
