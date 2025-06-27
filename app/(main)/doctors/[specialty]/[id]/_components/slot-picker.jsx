@@ -72,7 +72,7 @@ export function SlotPicker({ days, onSelectSlot }) {
                     <Card
                       key={slot.startTime}
                       //ye hai button slot picker wala....
-                      className={`border-pink-900/20 cursor-pointer transition-all ${
+                      className={`border-white cursor-pointer transition-all ${
                         selectedSlot?.startTime === slot.startTime
                           ? "bg-gradient-to-r from-blue-700 to-pink-600 border-blue-500"
                           : "hover:border-blue-300"
@@ -110,7 +110,7 @@ export function SlotPicker({ days, onSelectSlot }) {
         <Button
           onClick={confirmSelection}
           disabled={!selectedSlot}
-          className="bg-gradient-to-r from-pink-500 to-blue-600 hover:from-pink-600 hover:to-blue-700 text-white"
+          className="bg-gradient-to-r from-pink-600 to-blue-700 hover:from-blue-500 hover:to-pink-600 text-white"
         >
           Continue
           <ChevronRight className="ml-2 h-4 w-4" />
