@@ -24,7 +24,7 @@ export default async function PatientAppointmentsPage() {
         backLabel="Find Mentors"
       />
 
-      <Card className="border-pink-900/20">
+      <Card className="border-white">
         <CardHeader>
           <CardTitle className="text-xl font-bold text-white flex items-center">
             <Calendar className="h-5 w-5 mr-2 text-pink-400" />
