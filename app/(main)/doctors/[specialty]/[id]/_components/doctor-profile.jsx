@@ -61,7 +61,7 @@ export function DoctorProfile({ doctor, availableDays }) {
       {/* Left column - Mentor Photo and Quick Info */}
       <div className="md:col-span-1">
         <div className="md:sticky md:top-24">
-          <Card className="border-pink-900/20">
+          <Card className="border-white-900/20">
             <CardContent className="pt-6">
               <div className="flex flex-col items-center text-center">
                 <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4 bg-gradient-to-br from-pink-700 to-blue-800">
@@ -99,7 +99,7 @@ export function DoctorProfile({ doctor, availableDays }) {
 
                 <Button
                   onClick={toggleBooking}
-                  className="w-full bg-gradient-to-r from-pink-500 to-blue-600 hover:from-pink-600 hover:to-blue-700 text-white mt-4"
+                  className="w-full bg-gradient-to-r from-pink-600 to-blue-700 hover:from-blue-500 hover:to-pink-600 text-white mt-4"
                 >
                   {showBooking ? (
                     <>
@@ -121,7 +121,7 @@ export function DoctorProfile({ doctor, availableDays }) {
 
       {/* Right column - Details and Booking Section */}
       <div className="md:col-span-2 space-y-6">
-        <Card className="border-pink-900/20">
+        <Card className="border-white">
           <CardHeader>
             <CardTitle className="text-xl font-bold text-white">
               About Dr. {doctor.name}
@@ -133,7 +133,7 @@ export function DoctorProfile({ doctor, availableDays }) {
           <CardContent className="space-y-6">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <FileText className="h-5 w-5 text-blue-200" />
+                <FileText className="h-5 w-5 text-blue-300" />
                 <h3 className="text-white font-medium">Description</h3>
               </div>
               <p className="text-muted-foreground whitespace-pre-line">
@@ -141,23 +141,23 @@ export function DoctorProfile({ doctor, availableDays }) {
               </p>
             </div>
 
-            <Separator className="bg-pink-900/20" />
+            <Separator className="bg-white" />
 
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Clock className="h-5 w-5 text-blue-200" />
+                <Clock className="h-5 w-5 text-blue-300" />
                 <h3 className="text-white font-medium">Availability</h3>
               </div>
               {totalSlots > 0 ? (
                 <div className="flex items-center">
-                  <Calendar className="h-5 w-5 text-blue-200 mr-2" />
+                  <Calendar className="h-5 w-5 text-blue-300 mr-2" />
                   <p className="text-muted-foreground">
                     {totalSlots} time slots available for booking over the next 4 days
                   </p>
                 </div>
               ) : (
                 <Alert>
-                  <AlertCircle className="h-4 w-4 text-blue-200" />
+                  <AlertCircle className="h-4 w-4 text-blue-300" />
                   <AlertDescription>
                     No available slots for the next 4 days. Please check back later.
                   </AlertDescription>
@@ -170,9 +170,9 @@ export function DoctorProfile({ doctor, availableDays }) {
         {/* Booking Section */}
         {showBooking && (
           <div id="booking-section">
-            <Card className="border-pink-900/20">
+            <Card className="border-white">
               <CardHeader>
-                <CardTitle className="text-xl font-bold text-white">
+                <CardTitle className="text-xl font-bold text-blue-400">
                   Book an Appointment
                 </CardTitle>
                 <CardDescription>
