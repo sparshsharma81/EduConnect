@@ -45,17 +45,17 @@ export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="bg-muted/20 p-4 rounded-lg border border-emerald-900/20 space-y-3">
         <div className="flex items-center">
-          <Calendar className="h-5 w-5 text-emerald-400 mr-2" />
+          <Calendar className="h-5 w-5 text-pink-400 mr-2" />
           <span className="text-white font-medium">
             {format(new Date(slot.startTime), "EEEE, MMMM d, yyyy")}
           </span>
         </div>
         <div className="flex items-center">
-          <Clock className="h-5 w-5 text-emerald-400 mr-2" />
+          <Clock className="h-5 w-5 text-pink-400 mr-2" />
           <span className="text-white">{slot.formatted}</span>
         </div>
         <div className="flex items-center">
-          <CreditCard className="h-5 w-5 text-emerald-400 mr-2" />
+          <CreditCard className="h-5 w-5 text-pink-400 mr-2" />
           <span className="text-muted-foreground">
             Cost: <span className="text-white font-medium">2 credits</span>
           </span>
@@ -93,7 +93,7 @@ export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
         <Button
           type="submit"
           disabled={loading}
-          className="bg-emerald-600 hover:bg-emerald-700"
+          className="bg-gradient-to-r from-pink-700 to-blue-600 hover:bg-emerald-700 text-white"
         >
           {loading ? (
             <>
