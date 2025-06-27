@@ -1,4 +1,3 @@
-// /app/doctors/[id]/_components/doctor-profile.jsx
 "use client";
 
 import { useState } from "react";
@@ -33,7 +32,6 @@ export function DoctorProfile({ doctor, availableDays }) {
   const [selectedSlot, setSelectedSlot] = useState(null);
   const router = useRouter();
 
-  // Calculate total available slots
   const totalSlots = availableDays?.reduce(
     (total, day) => total + day.slots.length,
     0
@@ -42,7 +40,6 @@ export function DoctorProfile({ doctor, availableDays }) {
   const toggleBooking = () => {
     setShowBooking(!showBooking);
     if (!showBooking) {
-      // Scroll to booking section when expanding
       setTimeout(() => {
         document.getElementById("booking-section")?.scrollIntoView({
           behavior: "smooth",
@@ -61,13 +58,13 @@ export function DoctorProfile({ doctor, availableDays }) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {/* Left column - Mentor Photo and Quick Info (fixed on scroll) */}
+      {/* Left column - Mentor Photo and Quick Info */}
       <div className="md:col-span-1">
         <div className="md:sticky md:top-24">
-          <Card className="border-emerald-900/20">
+          <Card className="border-pink-900/20">
             <CardContent className="pt-6">
               <div className="flex flex-col items-center text-center">
-                <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4 bg-emerald-900/20">
+                <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4 bg-gradient-to-br from-pink-700 to-blue-800">
                   {doctor.imageUrl ? (
                     <Image
                       src={doctor.imageUrl}
@@ -77,7 +74,7 @@ export function DoctorProfile({ doctor, availableDays }) {
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
-                      <User className="h-16 w-16 text-emerald-400" />
+                      <User className="h-16 w-16 text-blue-200" />
                     </div>
                   )}
                 </div>
@@ -88,13 +85,13 @@ export function DoctorProfile({ doctor, availableDays }) {
 
                 <Badge
                   variant="outline"
-                  className="bg-emerald-900/20 border-emerald-900/30 text-emerald-400 mb-4"
+                  className="bg-pink-900/20 border-pink-800/30 text-blue-200 mb-4"
                 >
                   {doctor.specialty}
                 </Badge>
 
                 <div className="flex items-center justify-center mb-2">
-                  <Medal className="h-4 w-4 text-emerald-400 mr-2" />
+                  <Medal className="h-4 w-4 text-blue-200 mr-2" />
                   <span className="text-muted-foreground">
                     {doctor.experience} years experience
                   </span>
@@ -102,7 +99,7 @@ export function DoctorProfile({ doctor, availableDays }) {
 
                 <Button
                   onClick={toggleBooking}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 mt-4"
+                  className="w-full bg-gradient-to-r from-pink-500 to-blue-600 hover:from-pink-600 hover:to-blue-700 text-white mt-4"
                 >
                   {showBooking ? (
                     <>
@@ -122,9 +119,9 @@ export function DoctorProfile({ doctor, availableDays }) {
         </div>
       </div>
 
-      {/* Right column - Mentor Details and Booking Section */}
+      {/* Right column - Details and Booking Section */}
       <div className="md:col-span-2 space-y-6">
-        <Card className="border-emerald-900/20">
+        <Card className="border-pink-900/20">
           <CardHeader>
             <CardTitle className="text-xl font-bold text-white">
               About Dr. {doctor.name}
@@ -136,7 +133,7 @@ export function DoctorProfile({ doctor, availableDays }) {
           <CardContent className="space-y-6">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <FileText className="h-5 w-5 text-emerald-400" />
+                <FileText className="h-5 w-5 text-blue-200" />
                 <h3 className="text-white font-medium">Description</h3>
               </div>
               <p className="text-muted-foreground whitespace-pre-line">
@@ -144,27 +141,25 @@ export function DoctorProfile({ doctor, availableDays }) {
               </p>
             </div>
 
-            <Separator className="bg-emerald-900/20" />
+            <Separator className="bg-pink-900/20" />
 
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Clock className="h-5 w-5 text-emerald-400" />
+                <Clock className="h-5 w-5 text-blue-200" />
                 <h3 className="text-white font-medium">Availability</h3>
               </div>
               {totalSlots > 0 ? (
                 <div className="flex items-center">
-                  <Calendar className="h-5 w-5 text-emerald-400 mr-2" />
+                  <Calendar className="h-5 w-5 text-blue-200 mr-2" />
                   <p className="text-muted-foreground">
-                    {totalSlots} time slots available for booking over the next
-                    4 days
+                    {totalSlots} time slots available for booking over the next 4 days
                   </p>
                 </div>
               ) : (
                 <Alert>
-                  <AlertCircle className="h-4 w-4" />
+                  <AlertCircle className="h-4 w-4 text-blue-200" />
                   <AlertDescription>
-                    No available slots for the next 4 days. Please check back
-                    later.
+                    No available slots for the next 4 days. Please check back later.
                   </AlertDescription>
                 </Alert>
               )}
@@ -172,10 +167,10 @@ export function DoctorProfile({ doctor, availableDays }) {
           </CardContent>
         </Card>
 
-        {/* Booking Section - Conditionally rendered */}
+        {/* Booking Section */}
         {showBooking && (
           <div id="booking-section">
-            <Card className="border-emerald-900/20">
+            <Card className="border-pink-900/20">
               <CardHeader>
                 <CardTitle className="text-xl font-bold text-white">
                   Book an Appointment
@@ -187,7 +182,6 @@ export function DoctorProfile({ doctor, availableDays }) {
               <CardContent className="space-y-6">
                 {totalSlots > 0 ? (
                   <>
-                    {/* Slot selection step */}
                     {!selectedSlot && (
                       <SlotPicker
                         days={availableDays}
@@ -195,7 +189,6 @@ export function DoctorProfile({ doctor, availableDays }) {
                       />
                     )}
 
-                    {/* Appointment form step */}
                     {selectedSlot && (
                       <AppointmentForm
                         doctorId={doctor.id}
@@ -212,9 +205,8 @@ export function DoctorProfile({ doctor, availableDays }) {
                       No available slots
                     </h3>
                     <p className="text-muted-foreground">
-                      This Mentor doesn&apos;t have any available appointment
-                      slots for the next 4 days. Please check back later or try
-                      another Mentor.
+                      This Mentor doesn&apos;t have any available appointment slots
+                      for the next 4 days. Please check back later or try another Mentor.
                     </p>
                   </div>
                 )}
