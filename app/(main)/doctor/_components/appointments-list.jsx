@@ -21,10 +21,10 @@ export default function DoctorAppointmentsList() {
   const appointments = data?.appointments || [];
 
   return (
-    <Card className="border-emerald-900/20">
+    <Card className="border-blue-900/20">
       <CardHeader>
         <CardTitle className="text-xl font-bold text-white flex items-center">
-          <Calendar className="h-5 w-5 mr-2 text-emerald-400" />
+          <Calendar className="h-5 w-5 mr-2 text-blue-400" />
           Upcoming Appointments
         </CardTitle>
       </CardHeader>
