@@ -10,7 +10,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export function SlotPicker({ days, onSelectSlot }) {
   const [selectedSlot, setSelectedSlot] = useState(null);
 
-  // Find first day with slots as default tab
   const firstDayWithSlots =
     days.find((day) => day.slots.length > 0)?.date || days[0]?.date;
   const [activeTab, setActiveTab] = useState(firstDayWithSlots);
@@ -43,13 +42,13 @@ export function SlotPicker({ days, onSelectSlot }) {
               }
             >
               <div className="flex gap-2">
-                <div className=" opacity-80">
+                <div className="opacity-80">
                   {format(new Date(day.date), "MMM d")}
                 </div>
                 <div>({format(new Date(day.date), "EEE")})</div>
               </div>
               {day.slots.length > 0 && (
-                <div className="ml-2 bg-emerald-900/30 text-emerald-400 text-xs px-2 py-1 rounded">
+                <div className="ml-2 bg-pink-900 text-blue-200 text-xs px-2 py-1 rounded">
                   {day.slots.length}
                 </div>
               )}
@@ -72,10 +71,11 @@ export function SlotPicker({ days, onSelectSlot }) {
                   {day.slots.map((slot) => (
                     <Card
                       key={slot.startTime}
-                      className={`border-emerald-900/20 cursor-pointer transition-all ${
+                      //ye hai button slot picker wala....
+                      className={`border-pink-900/20 cursor-pointer transition-all ${
                         selectedSlot?.startTime === slot.startTime
-                          ? "bg-emerald-900/30 border-emerald-600"
-                          : "hover:border-emerald-700/40"
+                          ? "bg-gradient-to-r from-blue-700 to-pink-600 border-blue-500"
+                          : "hover:border-blue-300"
                       }`}
                       onClick={() => handleSlotSelect(slot)}
                     >
@@ -83,7 +83,7 @@ export function SlotPicker({ days, onSelectSlot }) {
                         <Clock
                           className={`h-4 w-4 mr-2 ${
                             selectedSlot?.startTime === slot.startTime
-                              ? "text-emerald-400"
+                              ? "text-blue-200"
                               : "text-muted-foreground"
                           }`}
                         />
@@ -110,7 +110,7 @@ export function SlotPicker({ days, onSelectSlot }) {
         <Button
           onClick={confirmSelection}
           disabled={!selectedSlot}
-          className="bg-emerald-600 hover:bg-emerald-700"
+          className="bg-gradient-to-r from-pink-500 to-blue-600 hover:from-pink-600 hover:to-blue-700 text-white"
         >
           Continue
           <ChevronRight className="ml-2 h-4 w-4" />
