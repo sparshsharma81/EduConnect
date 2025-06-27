@@ -65,7 +65,7 @@ export function PendingDoctors({ doctors }) {
 
   return (
     <div>
-      <Card className="bg-muted/20 border-blue-900/15">
+      <Card className="bg-muted/20 border-white">
         <CardHeader>
           <CardTitle className="text-xl font-bold text-white">
             Pending Doctor Verifications
