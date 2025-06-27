@@ -16,7 +16,7 @@ export default async function DoctorsPage() {
   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
   {SPECIALTIES.map((specialty) => (
     <Link key={specialty.name} href={`/doctors/${specialty.name}`}>
-      <Card className="group relative overflow-hidden border border-slate-800/40 rounded-xl bg-gradient-to-br from-slate-800/40 to-slate-900/30 shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out hover:scale-105">
+      <Card className="group relative overflow-hidden border-white rounded-xl bg-gradient-to-br from-slate-800/40 to-slate-900/30 shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out hover:scale-105">
         
         {/* Glow overlay on hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl z-0" />
@@ -38,7 +38,6 @@ export default async function DoctorsPage() {
     </Link>
   ))}
 </div>
-{/*       in this update..the colour is changed from green--emerald to blueish pink */}
 
 
     </>
