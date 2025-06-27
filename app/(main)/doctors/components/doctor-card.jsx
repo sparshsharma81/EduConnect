@@ -6,10 +6,10 @@ import Link from "next/link";
 
 export function DoctorCard({ doctor }) {
   return (
-    <Card className="border-emerald-900/20 hover:border-emerald-700/40 transition-all">
+    <Card className="border-pink-900/20 hover:border-blue-500/40 transition-all">
       <CardContent>
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-full bg-emerald-900/20 flex items-center justify-center flex-shrink-0">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-700 to-blue-800 flex items-center justify-center flex-shrink-0">
             {doctor.imageUrl ? (
               <img
                 src={doctor.imageUrl}
@@ -17,7 +17,7 @@ export function DoctorCard({ doctor }) {
                 className="w-12 h-12 rounded-full object-cover"
               />
             ) : (
-              <User className="h-6 w-6 text-emerald-400" />
+              <User className="h-6 w-6 text-blue-200" />
             )}
           </div>
 
@@ -26,7 +26,7 @@ export function DoctorCard({ doctor }) {
               <h3 className="font-medium text-white text-lg">{doctor.name}</h3>
               <Badge
                 variant="outline"
-                className="bg-emerald-900/20 border-emerald-900/30 text-emerald-400 self-start"
+                className="bg-pink-900/20 border-pink-800/30 text-blue-200 self-start"
               >
                 <Star className="h-3 w-3 mr-1" />
                 Verified
@@ -43,7 +43,7 @@ export function DoctorCard({ doctor }) {
 
             <Button
               asChild
-              className="w-full bg-emerald-500 hover:bg-emerald-600 mt-2"
+              className="w-full bg-gradient-to-r from-pink-500 to-blue-600 hover:from-pink-600 hover:to-blue-700 text-white mt-2"
             >
               <Link href={`/doctors/${doctor.specialty}/${doctor.id}`}>
                 <Calendar className="h-4 w-4 mr-2" />
