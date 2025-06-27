@@ -25,7 +25,7 @@ export default async function VerificationPage() {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-2xl mx-auto">
-        <Card className="border-emerald-900/20">
+        <Card className="border-pink-900/20">
           <CardHeader className="text-center">
             <div
               className={`mx-auto p-4 ${
@@ -116,7 +116,7 @@ export default async function VerificationPage() {
                   </Button>
                   <Button
                     asChild
-                    className="bg-emerald-600 hover:bg-emerald-700"
+                    className="bg-gradient-to-r from-pink-600 to-blue-700 hover:from-blue-500 hover:to-pink-600 text-white"
                   >
                     <Link href="/contact-support">Contact Support</Link>
                   </Button>
