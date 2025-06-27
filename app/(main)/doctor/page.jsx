@@ -32,9 +32,9 @@ export default async function DoctorDashboardPage() {
   return (
     <Tabs
       defaultValue="earnings"
-      className="grid grid-cols-1 md:grid-cols-4 gap-6"
+      className="grid grid-cols-1 md:grid-cols-4 gap-6 border-white"
     >
-      <TabsList className="md:col-span-1 bg-muted/30 border h-14 md:h-40 flex sm:flex-row md:flex-col w-full p-2 md:p-1 rounded-md md:space-y-2 sm:space-x-2 md:space-x-0">
+      <TabsList className="md:col-span-1 bg-muted/30 border-white h-14 md:h-40 flex sm:flex-row md:flex-col w-full p-2 md:p-1 rounded-md md:space-y-2 sm:space-x-2 md:space-x-0">
         <TabsTrigger
           value="earnings"
           className="flex-1 md:flex md:items-center md:justify-start md:px-4 md:py-3 w-full"
