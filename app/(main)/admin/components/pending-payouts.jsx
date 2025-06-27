@@ -77,7 +77,7 @@ export function PendingPayouts({ payouts }) {
 
   return (
     <div>
-      <Card className="bg-muted/20 border-blue-900/20">
+      <Card className="bg-muted/20 border-white">
         <CardHeader>
           <CardTitle className="text-xl font-bold text-white">
             Pending Payouts
@@ -339,7 +339,7 @@ export function PendingPayouts({ payouts }) {
                 </AlertDescription>
               </Alert>
 
-              <div className="bg-muted/20 p-4 rounded-lg border border-pink-900/20">
+              <div className="bg-muted/20 p-4 rounded-lg border-pink-900/20">
                 <div className="flex justify-between mb-2">
                   <span className="text-muted-foreground">Mentor:</span>
                   <span className="text-white">
