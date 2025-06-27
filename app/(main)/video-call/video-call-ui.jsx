@@ -187,7 +187,7 @@ export default function VideoCall({ sessionId, token }) {
         </p>
         <Button
           onClick={() => router.push("/appointments")}
-          className="bg-emerald-600 hover:bg-emerald-700"
+          className="bg-gradient-to-r from-pink-600 to-blue-700 hover:from-blue-500 hover:to-pink-600 text-white"
         >
           Back to Appointments
         </Button>
@@ -222,7 +222,7 @@ export default function VideoCall({ sessionId, token }) {
 
         {isLoading && !scriptLoaded ? (
           <div className="flex flex-col items-center justify-center py-12">
-            <Loader2 className="h-12 w-12 text-emerald-400 animate-spin mb-4" />
+            <Loader2 className="h-12 w-12 text-blue-400 animate-spin mb-4" />
             <p className="text-white text-lg">
               Loading video call components...
             </p>
@@ -231,8 +231,8 @@ export default function VideoCall({ sessionId, token }) {
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Publisher (Your video) */}
-              <div className="border border-emerald-900/20 rounded-lg overflow-hidden">
-                <div className="bg-emerald-900/10 px-3 py-2 text-emerald-400 text-sm font-medium">
+              <div className="border border-blue-900/20 rounded-lg overflow-hidden">
+                <div className="bg-blue-900/10 px-3 py-2 text-blue-400 text-sm font-medium">
                   You
                 </div>
                 <div
@@ -242,7 +242,7 @@ export default function VideoCall({ sessionId, token }) {
                   {!scriptLoaded && (
                     <div className="flex items-center justify-center h-full">
                       <div className="bg-muted/20 rounded-full p-8">
-                        <User className="h-12 w-12 text-emerald-400" />
+                        <User className="h-12 w-12 text-blue-400" />
                       </div>
                     </div>
                   )}
@@ -250,8 +250,8 @@ export default function VideoCall({ sessionId, token }) {
               </div>
 
               {/* Subscriber (Other person's video) */}
-              <div className="border border-emerald-900/20 rounded-lg overflow-hidden">
-                <div className="bg-emerald-900/10 px-3 py-2 text-emerald-400 text-sm font-medium">
+              <div className="border border-blue-900/20 rounded-lg overflow-hidden">
+                <div className="bg-blue-900/10 px-3 py-2 text-blue-400 text-sm font-medium">
                   Other Participant
                 </div>
                 <div
@@ -261,7 +261,7 @@ export default function VideoCall({ sessionId, token }) {
                   {(!isConnected || !scriptLoaded) && (
                     <div className="flex items-center justify-center h-full">
                       <div className="bg-muted/20 rounded-full p-8">
-                        <User className="h-12 w-12 text-emerald-400" />
+                        <User className="h-12 w-12 text-blue-400" />
                       </div>
                     </div>
                   )}
@@ -277,7 +277,7 @@ export default function VideoCall({ sessionId, token }) {
                 onClick={toggleVideo}
                 className={`rounded-full p-4 h-14 w-14 ${
                   isVideoEnabled
-                    ? "border-emerald-900/30"
+                    ? "border-blue-900/30"
                     : "bg-red-900/20 border-red-900/30 text-red-400"
                 }`}
                 disabled={!publisherRef.current}
@@ -291,7 +291,7 @@ export default function VideoCall({ sessionId, token }) {
                 onClick={toggleAudio}
                 className={`rounded-full p-4 h-14 w-14 ${
                   isAudioEnabled
-                    ? "border-emerald-900/30"
+                    ? "border-blue-900/30"
                     : "bg-red-900/20 border-red-900/30 text-red-400"
                 }`}
                 disabled={!publisherRef.current}
