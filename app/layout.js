@@ -50,7 +50,7 @@ export default function RootLayout({ children }) {
             <Toaster richColors />
 
             {/* yaha pr ham footer component add karege   */}
-            <footer className ="bg-muted/50 py-12">
+            <footer className ="bg-muted/50 py-10 bg-gradient-to-r from-indigo-900/30 to-purple-900/30">
               {/* ye basically ek basic styling hai footer ki ..taaki vo center me aa jaye.... */}
               <div className="container mx-auto px-4 text-center text-gray-200">
                 {/* container basically ek max width provide karta hai according to the size of the screen --basically app responsive ban sake */}
