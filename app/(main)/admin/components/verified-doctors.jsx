@@ -65,7 +65,7 @@ export function VerifiedDoctors({ doctors }) {
 
   return (
     <div>
-      <Card className="bg-muted/20 border-emerald-900/20">
+      <Card className="bg-muted/20 border-pink-900/20">
         <CardHeader>
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
@@ -80,7 +80,7 @@ export function VerifiedDoctors({ doctors }) {
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search Mentors..."
-                className="pl-8 bg-background border-emerald-900/20"
+                className="pl-8 bg-background border-pink-900/20"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -102,13 +102,13 @@ export function VerifiedDoctors({ doctors }) {
                 return (
                   <Card
                     key={doctor.id}
-                    className="bg-background border-emerald-900/20 hover:border-emerald-700/30 transition-all"
+                    className="bg-background border-pink-900/20 hover:border-pink-700/30 transition-all"
                   >
                     <CardContent className="p-4">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
-                          <div className="bg-muted/20 rounded-full p-2">
-                            <User className="h-5 w-5 text-emerald-400" />
+                          <div className="bg-muted/20 rounded-full p-2 bg-gradient-to-r from-pink-500 to-blue-600 ">
+                            <User className="h-5 w-5 text-pink-100" />
                           </div>
                           <div>
                             <h3 className="font-medium text-white">
@@ -139,7 +139,7 @@ export function VerifiedDoctors({ doctors }) {
                                   handleStatusChange(doctor, false)
                                 }
                                 disabled={loading}
-                                className="border-emerald-900/30 hover:bg-muted/80"
+                                className="border-pink-900/30 hover:bg-muted/80"
                               >
                                 {loading && targetDoctor?.id === doctor.id ? (
                                   <Loader2 className="h-4 w-4 mr-1 animate-spin" />
@@ -153,7 +153,7 @@ export function VerifiedDoctors({ doctors }) {
                             <>
                               <Badge
                                 variant="outline"
-                                className="bg-emerald-900/20 border-emerald-900/30 text-emerald-400"
+                                className="bg-pink-900/20 border-pink-900/30 text-pink-400"
                               >
                                 Active
                               </Badge>
