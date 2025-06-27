@@ -25,7 +25,7 @@ export default async function VerificationPage() {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-2xl mx-auto">
-        <Card className="border-pink-900/20">
+        <Card className="border-white">
           <CardHeader className="text-center">
             <div
               className={`mx-auto p-4 ${
@@ -38,7 +38,7 @@ export default async function VerificationPage() {
                 <ClipboardCheck className="h-8 w-8 text-amber-400" />
               )}
             </div>
-            <CardTitle className="text-2xl font-bold text-white">
+            <CardTitle className="text-2xl font-bold text-pink-400">
               {isRejected
                 ? "Verification Declined"
                 : "Verification in Progress"}
@@ -51,7 +51,7 @@ export default async function VerificationPage() {
           </CardHeader>
           <CardContent className="text-center">
             {isRejected ? (
-              <div className="bg-red-900/10 border border-red-900/20 rounded-lg p-4 mb-6 flex items-start">
+              <div className="bg-red-900/10 border border-white-900/20 rounded-lg p-4 mb-6 flex items-start">
                 <AlertCircle className="h-5 w-5 text-red-400 mr-3 mt-0.5 flex-shrink-0" />
                 <div className="text-muted-foreground text-left">
                   <p className="mb-2">
@@ -71,7 +71,7 @@ export default async function VerificationPage() {
                 </div>
               </div>
             ) : (
-              <div className="bg-amber-900/10 border border-amber-900/20 rounded-lg p-4 mb-6 flex items-start">
+              <div className="bg-amber-900/10 border border-white-900/20 rounded-lg p-4 mb-6 flex items-start">
                 <AlertCircle className="h-5 w-5 text-amber-400 mr-3 mt-0.5 flex-shrink-0" />
                 <p className="text-muted-foreground text-left">
                   Your profile is currently under review by our administrative
@@ -94,7 +94,7 @@ export default async function VerificationPage() {
                   <Button
                     asChild
                     variant="outline"
-                    className="border-emerald-900/30"
+                    className="border-white-900/30"
                   >
                     <Link href="/">Return to Home</Link>
                   </Button>
