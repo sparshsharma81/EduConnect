@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import Header from "@/components/Header"; //and this is the header component 
 import { ClerkProvider } from "@clerk/nextjs"; //this is the clerk provider which is for authentication ....
 import { dark } from "@clerk/themes";//this is the dark theme for clerk which is for authentication 
+import Link from "next/link";
 
 // HERE WE WILL USE THE DEFAULT FONT 
 const inter = Inter({ subsets: ["latin"] });
@@ -63,16 +64,16 @@ export default function RootLayout({ children }) {
                   <div>
                     <h4 className="text-red-400 font-semibold mb-4">Quick Links</h4>
                     <ul className="space-y-2 text-sm">
-                      <li><a href="/doctors" className="text-sky-300 hover:text-white transition-colors">Find Mentors</a></li>
-                      <li><a href="/pricing" className="text-sky-300 hover:text-white transition-colors">Pricing</a></li>
-                      <li><a href="/onboarding" className="text-sky-300 hover:text-white transition-colors">Get Started</a></li>
+                      <li><Link href="/doctors" className="text-sky-300 hover:text-white transition-colors">Find Mentors</Link></li>
+                      <li><Link href="/pricing" className="text-sky-300 hover:text-white transition-colors">Pricing</Link></li>
+                      <li><Link href="/onboarding" className="text-sky-300 hover:text-white transition-colors">Get Started</Link></li>
                     </ul>
                   </div>
                   <div>
                     <h4 className="text-red-400 font-semibold mb-4">Support</h4>
                     <ul className="space-y-2 text-sm">
-                      <li><a href="/contact-support" className="text-sky-300 hover:text-white transition-colors">Contact Support</a></li>
-                      <li><a href="/email-support" className="text-sky-300 hover:text-white transition-colors">Email Support</a></li>
+                      <li><Link href="/contact-support" className="text-sky-300 hover:text-white transition-colors">Contact Support</Link></li>
+                      <li><Link href="/email-support" className="text-sky-300 hover:text-white transition-colors">Email Support</Link></li>
                       {/* <li><a href="mailto:support@educonnect.com" className="text-sky-300 hover:text-white transition-colors">Direct Email</a></li> */}
                       {/* basically we have removed this option.... */}
                     </ul>
@@ -80,8 +81,8 @@ export default function RootLayout({ children }) {
                   <div>
                     <h4 className="text-red-400 font-semibold mb-4">Legal</h4>
                     <ul className="space-y-2 text-sm">
-                      <li><a href="/privacy-policy" className="text-sky-300 hover:text-white transition-colors">Privacy Policy</a></li>
-                      <li><a href="/terms-of-service" className="text-sky-300 hover:text-white transition-colors">Terms of Service</a></li>
+                      <li><Link href="/privacy-policy" className="text-sky-300 hover:text-white transition-colors">Privacy Policy</Link></li>
+                      <li><Link href="/terms-of-service" className="text-sky-300 hover:text-white transition-colors">Terms of Service</Link></li>
                     </ul>
                   </div>
                 </div>
