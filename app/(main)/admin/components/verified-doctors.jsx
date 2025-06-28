@@ -9,9 +9,17 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check, Ban, Loader2, User, Search } from "lucide-react";
+import { Check, Ban, Loader2, User, Search, AlertTriangle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { updateDoctorActiveStatus } from "@/actions/admin";
 import useFetch from "@/hooks/use-fetch";
 import { toast } from "sonner";
@@ -20,6 +28,8 @@ export function VerifiedDoctors({ doctors }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [targetDoctor, setTargetDoctor] = useState(null);
   const [actionType, setActionType] = useState(null);
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [confirmAction, setConfirmAction] = useState(null); // 'suspend' or 'reinstate'
 
   const {
     loading,
@@ -36,22 +46,22 @@ export function VerifiedDoctors({ doctors }) {
     );
   });
 
-  const handleStatusChange = async (doctor, suspend) => {
-    const confirmed = window.confirm(
-      `Are you sure you want to ${suspend ? "suspend" : "reinstate"} ${
-        doctor.name
-      }?`
-    );
-    if (!confirmed || loading) return;
+  const handleStatusChangeConfirmation = (doctor, suspend) => {
+    setTargetDoctor(doctor);
+    setConfirmAction(suspend ? 'suspend' : 'reinstate');
+    setConfirmOpen(true);
+  };
+
+  const handleConfirmedAction = async () => {
+    if (loading || !targetDoctor || !confirmAction) return;
 
     const formData = new FormData();
-    formData.append("doctorId", doctor.id);
-    formData.append("suspend", suspend ? "true" : "false");
+    formData.append("doctorId", targetDoctor.id);
+    formData.append("suspend", confirmAction === 'suspend' ? "true" : "false");
 
-    setTargetDoctor(doctor);
-    setActionType(suspend ? "SUSPEND" : "REINSTATE");
-
+    setActionType(confirmAction === 'suspend' ? "SUSPEND" : "REINSTATE");
     await submitStatusUpdate(formData);
+    setConfirmOpen(false);
   };
 
   useEffect(() => {
@@ -136,7 +146,7 @@ export function VerifiedDoctors({ doctors }) {
                                 variant="outline"
                                 size="sm"
                                 onClick={() =>
-                                  handleStatusChange(doctor, false)
+                                  handleStatusChangeConfirmation(doctor, false)
                                 }
                                 disabled={loading}
                                 className="border-pink-900/30 hover:bg-muted/80"
@@ -160,7 +170,7 @@ export function VerifiedDoctors({ doctors }) {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                onClick={() => handleStatusChange(doctor, true)}
+                                onClick={() => handleStatusChangeConfirmation(doctor, true)}
                                 disabled={loading}
                                 className="border-red-900/30 hover:bg-red-900/10 text-red-400"
                               >
@@ -183,6 +193,68 @@ export function VerifiedDoctors({ doctors }) {
           )}
         </CardContent>
       </Card>
+
+      {/* Confirmation Dialog */}
+      <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-red-900/20 rounded-full">
+                <AlertTriangle className="h-6 w-6 text-red-400" />
+              </div>
+              <DialogTitle className="text-xl font-bold text-white">
+                {confirmAction === 'suspend' ? 'Suspend Mentor' : 'Reinstate Mentor'}
+              </DialogTitle>
+            </div>
+            <DialogDescription className="text-muted-foreground">
+              {confirmAction === 'suspend' 
+                ? `Are you sure you want to suspend ${targetDoctor?.name}? They will not be able to accept new appointments.`
+                : `Are you sure you want to reinstate ${targetDoctor?.name}? They will be able to accept appointments again.`
+              }
+            </DialogDescription>
+          </DialogHeader>
+
+          <DialogFooter className="flex gap-2">
+            <Button
+              variant="outline"
+              onClick={() => setConfirmOpen(false)}
+              className="border-gray-600 hover:bg-gray-800"
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={handleConfirmedAction}
+              disabled={loading}
+              className={
+                confirmAction === 'suspend' 
+                  ? "bg-red-600 hover:bg-red-700" 
+                  : "bg-emerald-600 hover:bg-emerald-700"
+              }
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  {confirmAction === 'suspend' ? 'Suspending...' : 'Reinstating...'}
+                </>
+              ) : (
+                <>
+                  {confirmAction === 'suspend' ? (
+                    <>
+                      <Ban className="mr-2 h-4 w-4" />
+                      Suspend Mentor
+                    </>
+                  ) : (
+                    <>
+                      <Check className="mr-2 h-4 w-4" />
+                      Reinstate Mentor
+                    </>
+                  )}
+                </>
+              )}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
