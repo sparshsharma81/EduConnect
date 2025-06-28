@@ -32,7 +32,7 @@ export default async function PricingPage() {
           Simple, Transparent Pricing
         </h1>
 
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-lg font-bold bg-gradient-to-l from-amber-300 via-sky-300 to-green-400 bg-clip-text text-transparent max-w-2xl mx-auto">
           Choose the perfect consultation package that fits your education
           needs with no hidden fees or long-term commitments
         </p>
@@ -43,10 +43,10 @@ export default async function PricingPage() {
 
       {/* FAQ Section - Optional */}
       <div className="max-w-3xl mx-auto mt-16 text-center">
-        <h2 className="text-2xl font-bold text-white mb-2">
+        <h2 className="text-2xl font-bold bg-gradient-to-l from-green-300 via-black-300 to-amber-400 bg-clip-text text-transparent mb-2">
           Questions? We&apos;re Here to Help
         </h2>
-        <p className="text-muted-foreground mb-4">
+        <p className="font-bold bg-gradient-to-b from-purple-300 via-pink-300 to-green-400 bg-clip-text text-transparent mb-4">
           Contact our support team at support@educonnect.com
         </p>
       </div>
