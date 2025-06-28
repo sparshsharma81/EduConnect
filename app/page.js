@@ -21,8 +21,8 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-900/30 to-purple-900/30 px-4 py-2 rounded-full border border-indigo-700/30 backdrop-blur-sm">
-                <Sparkles className="h-4 w-4 text-indigo-400 animate-pulse" />
-                <span className="text-indigo-400 text-sm font-medium">Transform Your Learning Journey</span>
+                <Sparkles className="h-4 w-4 text-pink-400 animate-pulse" />
+                <span className="text-pink-300 text-sm font-medium">Transform Your Learning Journey</span>
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
                 Connect with Expert <br />
@@ -38,7 +38,7 @@ export default function Home() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-orange-600 via-pink-600 via-sky-600 to-violet-600 text-white shadow-lg hover:from-orange-500 hover:via-pink-500 hover:via-sky-500 hover:to-violet-500 transition-all duration-300"
+                  className="bg-gradient-to-r from-orange-600 via-pink-600 via-sky-600 to-violet-600 text-white shadow-lg hover:from-orange-500 hover:via-pink-500 hover:via-sky-500 hover:to-violet-500 hover:text-black transition-all duration-300"
                 >
                   <Link href="/onboarding">
                     Start Your Journey <ArrowRight className="ml-2 h-4 w-4" />
@@ -99,7 +99,7 @@ export default function Home() {
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Comprehensive Learning <br />
-              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text animate-gradient">
+              <span className="bg-gradient-to-r from-amber-400 via-green-400 to-pink-500 text-transparent bg-clip-text animate-gradient">
                 Experience
               </span>
             </h2>
@@ -116,7 +116,7 @@ export default function Home() {
                 className="group bg-gradient-to-br from-blue-200/20 via-purple-900/20 to-pink-300/20 border border-indigo-800/20 hover:border-pink-200/40 transform transition-all duration-200 hover:scale-[1.03] hover:shadow-yellow-200/20 hover:shadow-3xl rounded-2xl backdrop-blur-sm"
               >
                 <CardHeader className="pb-2">
-                  <div className="bg-gradient-to-br from-indigo-900/30 to-purple-900/30 p-4 rounded-xl w-fit mb-4 transition-colors duration-300 group-hover:from-indigo-800/40 group-hover:to-purple-800/40">
+                  <div className="bg-gradient-to-br from-pink-900/60 to-blue-900/60 p-4 rounded-xl w-fit mb-4 transition-colors duration-300 group-hover:from-indigo-800/40 group-hover:to-purple-800/40">
                     {feature.icon}
                   </div>
                   <CardTitle className="text-2xl font-semibold text-white">
@@ -188,7 +188,7 @@ export default function Home() {
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Choose Your <br />
-              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text animate-gradient">
+              <span className="bg-gradient-to-r from-amber-400 via-green-400 to-pink-500 text-transparent bg-clip-text animate-gradient">
                 Learning Path
               </span>
             </h2>
@@ -247,13 +247,13 @@ export default function Home() {
           <div className="text-center mb-20">
             <Badge
               variant="outline"
-              className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 border-indigo-700/30 px-4 py-1 text-indigo-400 text-sm font-medium mb-4 backdrop-blur-sm"
+              className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 border-indigo-700/30 px-4 py-1 text-sky-400 text-sm font-medium mb-4 backdrop-blur-sm"
             >
               Success Stories
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               What Our Community <br />
-              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text animate-gradient">
+              <span className="bg-gradient-to-r from-sky-400 via-purple-500 to-pink-400 text-transparent bg-clip-text animate-gradient">
                 Says
               </span>
             </h2>
@@ -325,7 +325,15 @@ export default function Home() {
                     size="lg"
                     className="border-indigo-700/30 hover:bg-indigo-900/30 transition-all duration-300 text-lg px-8 py-6 backdrop-blur-sm"
                   >
-                    <Link href="#pricing">View Plans</Link>
+                    <Link href="/pricing">View Plans</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="border-indigo-700/30 hover:bg-indigo-900/30 transition-all duration-300 text-lg px-8 py-6 backdrop-blur-sm"
+                  >
+                    <Link href="/contact-support">Contact Support</Link>
                   </Button>
                 </div>
               </div>
