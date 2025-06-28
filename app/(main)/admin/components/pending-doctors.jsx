@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check, X, User, Medal, FileText, ExternalLink } from "lucide-react";
+import { Check, X, User, Medal, FileText, ExternalLink, AlertTriangle } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import {
   Dialog,
@@ -28,6 +28,8 @@ import { BarLoader } from "react-spinners";
 
 export function PendingDoctors({ doctors }) {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [confirmAction, setConfirmAction] = useState(null); // 'approve' or 'reject'
 
   // Custom hook for approve/reject server action
   const {
@@ -46,15 +48,22 @@ export function PendingDoctors({ doctors }) {
     setSelectedDoctor(null);
   };
 
-  // Handle approve or reject Mentor
-  const handleUpdateStatus = async (doctorId, status) => {
-    if (loading) return;
+  // Handle approve or reject confirmation
+  const handleStatusConfirmation = (doctorId, status) => {
+    setConfirmAction(status === "VERIFIED" ? "approve" : "reject");
+    setConfirmOpen(true);
+  };
+
+  // Handle confirmed action
+  const handleConfirmedAction = async () => {
+    if (loading || !selectedDoctor || !confirmAction) return;
 
     const formData = new FormData();
-    formData.append("doctorId", doctorId);
-    formData.append("status", status);
+    formData.append("doctorId", selectedDoctor.id);
+    formData.append("status", confirmAction === "approve" ? "VERIFIED" : "REJECTED");
 
     await submitStatusUpdate(formData);
+    setConfirmOpen(false);
   };
 
   useEffect(() => {
@@ -239,9 +248,7 @@ export function PendingDoctors({ doctors }) {
             <DialogFooter className="flex sm:justify-between">
               <Button
                 variant="destructive"
-                onClick={() =>
-                  handleUpdateStatus(selectedDoctor.id, "REJECTED")
-                }
+                onClick={() => handleStatusConfirmation(selectedDoctor.id, "REJECTED")}
                 disabled={loading}
                 className="bg-red-300 hover:bg-red-700"
               >
@@ -249,9 +256,7 @@ export function PendingDoctors({ doctors }) {
                 Reject
               </Button>
               <Button
-                onClick={() =>
-                  handleUpdateStatus(selectedDoctor.id, "VERIFIED")
-                }
+                onClick={() => handleStatusConfirmation(selectedDoctor.id, "VERIFIED")}
                 disabled={loading}
                 className="bg-gradient-to-r from-pink-600 to-blue-700 hover:from-blue-500 hover:to-pink-600 text-white"
               >
@@ -262,6 +267,68 @@ export function PendingDoctors({ doctors }) {
           </DialogContent>
         </Dialog>
       )}
+
+      {/* Confirmation Dialog */}
+      <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-red-900/20 rounded-full">
+                <AlertTriangle className="h-6 w-6 text-red-400" />
+              </div>
+              <DialogTitle className="text-xl font-bold text-white">
+                {confirmAction === 'approve' ? 'Approve Mentor' : 'Reject Mentor'}
+              </DialogTitle>
+            </div>
+            <DialogDescription className="text-muted-foreground">
+              {confirmAction === 'approve' 
+                ? `Are you sure you want to approve ${selectedDoctor?.name}? They will be able to accept appointments and start mentoring students.`
+                : `Are you sure you want to reject ${selectedDoctor?.name}? They will not be able to join the platform as a mentor.`
+              }
+            </DialogDescription>
+          </DialogHeader>
+
+          <DialogFooter className="flex gap-2">
+            <Button
+              variant="outline"
+              onClick={() => setConfirmOpen(false)}
+              className="border-gray-600 hover:bg-gray-800"
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={handleConfirmedAction}
+              disabled={loading}
+              className={
+                confirmAction === 'approve' 
+                  ? "bg-emerald-600 hover:bg-emerald-700" 
+                  : "bg-red-600 hover:bg-red-700"
+              }
+            >
+              {loading ? (
+                <>
+                  <BarLoader width={"100%"} color="#36d7b7" />
+                  {confirmAction === 'approve' ? 'Approving...' : 'Rejecting...'}
+                </>
+              ) : (
+                <>
+                  {confirmAction === 'approve' ? (
+                    <>
+                      <Check className="mr-2 h-4 w-4" />
+                      Approve Mentor
+                    </>
+                  ) : (
+                    <>
+                      <X className="mr-2 h-4 w-4" />
+                      Reject Mentor
+                    </>
+                  )}
+                </>
+              )}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
