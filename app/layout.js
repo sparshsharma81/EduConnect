@@ -52,11 +52,42 @@ export default function RootLayout({ children }) {
             {/* yaha pr ham footer component add karege   */}
             <footer className ="bg-muted/50 py-10 bg-gradient-to-r from-indigo-900/30 to-purple-900/30">
               {/* ye basically ek basic styling hai footer ki ..taaki vo center me aa jaye.... */}
-              <div className="container mx-auto px-4 text-center text-gray-200">
-                {/* container basically ek max width provide karta hai according to the size of the screen --basically app responsive ban sake */}
-                {/* mx-auto --- this will insure that everything will be pushed inside the middle  */}
-                {/* 4 rem padding -- 4 -- 1 rem -- 16px  */}
-                <p>Made By Sparsh Sharma</p>
+              <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                  <div>
+                    <h3 className="text-purple-400 font-semibold mb-4">EduConnect</h3>
+                    <p className="text-sky-300 text-sm">
+                      Connect with expert mentors for personalized learning experiences.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-red-400 font-semibold mb-4">Quick Links</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li><a href="/doctors" className="text-sky-300 hover:text-white transition-colors">Find Mentors</a></li>
+                      <li><a href="/pricing" className="text-sky-300 hover:text-white transition-colors">Pricing</a></li>
+                      <li><a href="/onboarding" className="text-sky-300 hover:text-white transition-colors">Get Started</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-red-400 font-semibold mb-4">Support</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li><a href="/contact-support" className="text-sky-300 hover:text-white transition-colors">Contact Support</a></li>
+                      <li><a href="/email-support" className="text-sky-300 hover:text-white transition-colors">Email Support</a></li>
+                      {/* <li><a href="mailto:support@educonnect.com" className="text-sky-300 hover:text-white transition-colors">Direct Email</a></li> */}
+                      {/* basically we have removed this option.... */}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-red-400 font-semibold mb-4">Legal</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li><a href="/privacy-policy" className="text-sky-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                      <li><a href="/terms-of-service" className="text-sky-300 hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="border-t border-gray-700 pt-6 text-center">
+                  <p className="text-white text-sm">Made By Sparsh Sharma</p>
+                </div>
               </div>
             </footer>
           </ThemeProvider>
