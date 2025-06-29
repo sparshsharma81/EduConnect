@@ -40,9 +40,9 @@ export function VerifiedDoctors({ doctors }) {
   const filteredDoctors = doctors.filter((doctor) => {
     const query = searchTerm.toLowerCase();
     return (
-      doctor.name.toLowerCase().includes(query) ||
-      doctor.specialty.toLowerCase().includes(query) ||
-      doctor.email.toLowerCase().includes(query)
+      (doctor.name?.toLowerCase() || '').includes(query) ||
+      (doctor.specialty?.toLowerCase() || '').includes(query) ||
+      (doctor.email?.toLowerCase() || '').includes(query)
     );
   });
 
@@ -67,7 +67,7 @@ export function VerifiedDoctors({ doctors }) {
   useEffect(() => {
     if (data?.success && targetDoctor && actionType) {
       const actionVerb = actionType === "SUSPEND" ? "Suspended" : "Reinstated";
-      toast.success(`${actionVerb} ${targetDoctor.name} successfully!`);
+      toast.success(`${actionVerb} ${targetDoctor.name || 'Mentor'} successfully!`);
       setTargetDoctor(null);
       setActionType(null);
     }
@@ -79,7 +79,7 @@ export function VerifiedDoctors({ doctors }) {
         <CardHeader>
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <CardTitle className="text-xl font-bold text-white">
+              <CardTitle className="text-xl font-bold bg-gradient-to-l from-green-700 via-sky-400 to-purple-400 bg-clip-text text-transparent">
                 Manage Mentors
               </CardTitle>
               <CardDescription>
@@ -112,7 +112,7 @@ export function VerifiedDoctors({ doctors }) {
                 return (
                   <Card
                     key={doctor.id}
-                    className="bg-background border-pink-900/20 hover:border-pink-700/30 transition-all"
+                    className="bg-background border-white-900/60 hover:border-white transition-all"
                   >
                     <CardContent className="p-4">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -121,15 +121,15 @@ export function VerifiedDoctors({ doctors }) {
                             <User className="h-5 w-5 text-pink-100" />
                           </div>
                           <div>
-                            <h3 className="font-medium text-white">
-                              {doctor.name}
+                            <h3 className="font-medium bg-gradient-to-t from-green-500 to-sky-700 bg-clip-text text-transparent">
+                              {doctor.name || 'N/A'}
                             </h3>
-                            <p className="text-sm text-muted-foreground">
-                              {doctor.specialty} • {doctor.experience} years
+                            <p className="text-sm bg-gradient-to-r from-amber-300 via-blue-300 to-green-400 bg-clip-text text-transparent mb-1">
+                              {doctor.specialty || 'N/A'} • {doctor.experience || 0} years
                               experience
                             </p>
-                            <p className="text-sm text-muted-foreground mt-1">
-                              {doctor.email}
+                            <p className="text-sm font-medium font-bold bg-gradient-to-r from-pink-300 via-sky-400 to-purple-500 bg-clip-text text-transparent mb-1">
+                              {doctor.email || 'N/A'}
                             </p>
                           </div>
                         </div>
@@ -138,7 +138,7 @@ export function VerifiedDoctors({ doctors }) {
                             <>
                               <Badge
                                 variant="outline"
-                                className="bg-red-900/20 border-red-900/30 text-red-400"
+                                className="bg-red-900/40 border-red-900/30 text-red-400"
                               >
                                 Suspended
                               </Badge>
@@ -208,8 +208,8 @@ export function VerifiedDoctors({ doctors }) {
             </div>
             <DialogDescription className="text-muted-foreground">
               {confirmAction === 'suspend' 
-                ? `Are you sure you want to suspend ${targetDoctor?.name}? They will not be able to accept new appointments.`
-                : `Are you sure you want to reinstate ${targetDoctor?.name}? They will be able to accept appointments again.`
+                ? `Are you sure you want to suspend ${targetDoctor?.name || 'this Mentor'}? They will not be able to accept new appointments.`
+                : `Are you sure you want to reinstate ${targetDoctor?.name || 'this Mentor'}? They will be able to accept appointments again.`
               }
             </DialogDescription>
           </DialogHeader>
