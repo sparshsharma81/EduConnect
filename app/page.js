@@ -11,16 +11,16 @@ export default function Home() {
   return (
     <div className="bg-background">
       {/* Hero Section with Enhanced Design */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-indigo-950 via-background to-purple-950 pt-16">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-r from-black-800 via-purple-600/30 to-pink-800/20 pt-16">
         {/* Animated background elements */}
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background" />
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-500/10 via-transparent to-transparent" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-900/30 to-purple-900/30 px-4 py-2 rounded-full border border-indigo-700/30 backdrop-blur-sm">
+              <div className="inline-flex items-center space-x-2 bg-gradient-to-br from-black-900/30 via-purple-900/40 to-black-900/30 px-4 py-2 rounded-full border border-indigo-700/30 backdrop-blur-sm">
                 <Sparkles className="h-4 w-4 text-pink-400 animate-pulse" />
                 <span className="text-pink-300 text-sm font-medium">Transform Your Learning Journey</span>
               </div>
@@ -38,7 +38,7 @@ export default function Home() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-orange-600 via-pink-600 via-sky-600 to-violet-600 text-white shadow-lg hover:from-orange-500 hover:via-pink-500 hover:via-sky-500 hover:to-violet-500 hover:text-black transition-all duration-300"
+                  className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:text-white"
                 >
                   <Link href="/onboarding">
                     Start Your Journey <ArrowRight className="ml-2 h-4 w-4" />
@@ -93,13 +93,13 @@ export default function Home() {
           <div className="text-center mb-20">
             <Badge
               variant="outline"
-              className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 border-indigo-700/30 px-4 py-1 text-indigo-400 text-sm font-medium mb-4 backdrop-blur-sm"
+              className="bg-gradient-to-br from-indigo-900/20 via-purple-900/20 to-indigo-900/20 border-indigo-700/20 px-4 py-1 text-indigo-400 text-sm font-medium mb-4 backdrop-blur-sm"
             >
               Why Choose Us
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Comprehensive Learning <br />
-              <span className="bg-gradient-to-r from-amber-400 via-green-400 to-pink-500 text-transparent bg-clip-text animate-gradient">
+              <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-400 text-transparent bg-clip-text animate-gradient">
                 Experience
               </span>
             </h2>
@@ -113,10 +113,10 @@ export default function Home() {
             {features.map((feature, index) => (
               <Card
                 key={index}
-                className="group bg-gradient-to-br from-blue-200/20 via-purple-900/20 to-pink-300/20 border border-indigo-800/20 hover:border-pink-200/40 transform transition-all duration-200 hover:scale-[1.03] hover:shadow-yellow-200/20 hover:shadow-3xl rounded-2xl backdrop-blur-sm"
+                className="group bg-gradient-to-br from-indigo-900/20 via-purple-900/20 to-pink-800/10 border border-indigo-800/20 hover:border-pink-200/40 transform transition-all duration-200 hover:scale-[1.03] hover:shadow-yellow-200/20 hover:shadow-3xl rounded-2xl backdrop-blur-sm"
               >
                 <CardHeader className="pb-2">
-                  <div className="bg-gradient-to-br from-pink-900/60 to-blue-900/60 p-4 rounded-xl w-fit mb-4 transition-colors duration-300 group-hover:from-indigo-800/40 group-hover:to-purple-800/40">
+                  <div className="bg-gradient-to-br from-purple-800/40 to-blue-900/60 p-4 rounded-xl w-fit mb-4 transition-colors duration-300 group-hover:from-pink-800/40 group-hover:to-purple-800/40">
                     {feature.icon}
                   </div>
                   <CardTitle className="text-2xl font-semibold text-white">
@@ -188,7 +188,7 @@ export default function Home() {
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Choose Your <br />
-              <span className="bg-gradient-to-r from-amber-400 via-green-400 to-pink-500 text-transparent bg-clip-text animate-gradient">
+              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text animate-gradient">
                 Learning Path
               </span>
             </h2>
@@ -242,7 +242,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section with Enhanced Cards */}
-      <section className="py-32 relative bg-gradient-to-br from-indigo-950/50 via-purple-950/50 to-indigo-950/50">
+      <section className="py-32 relative bg-gradient-to-br from-black-950/70 via-purple-950/30 to-indigo-950/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <Badge
@@ -298,7 +298,7 @@ export default function Home() {
       {/* Enhanced CTA Section */}
       <section className="py-32">
         <div className="container mx-auto px-4">
-          <Card className="bg-gradient-to-br from-indigo-900/30 via-purple-900/30 to-indigo-900/30 border border-indigo-800/20 backdrop-blur-sm">
+          <Card className="bg-gradient-to-br from-indigo-900/20 via-purple-900/20 to-indigo-900/20 border border-indigo-800/20 backdrop-blur-sm">
             <CardContent className="p-12 md:p-16 lg:p-20 relative overflow-hidden">
               <div className="max-w-3xl relative z-10">
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
@@ -344,6 +344,8 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-purple-500/5 to-pink-500/5"></div>
             </CardContent>
           </Card>
+
+          
         </div>
       </section>
     </div>
