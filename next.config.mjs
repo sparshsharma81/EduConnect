@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: true,
-  },
   async headers() {
     return [
       {
@@ -17,7 +14,17 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ['img.clerk.com'], // ✅ Added for loading external images
+    domains: ['img.clerk.com', 'images.clerk.dev'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.clerk.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.clerk.dev',
+      },
+    ],
   },
 };
 
