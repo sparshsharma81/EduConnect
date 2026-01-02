@@ -1,8 +1,6 @@
-
-  
 # EduConnect - Professional Education Consultation Platform
 
-  <img src="https://github.com/sparshsharma81/sparshsharma81/blob/main/images/educonnect-4.gif?raw=true" width="1400" />
+ <img src="https://github.com/sparshsharma81/sparshsharma81/blob/main/images/educonnect-4.gif?raw=true" width="1400" />
  
 ![Next.js](https://img.shields.io/badge/Next.js-15.3.2-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)
@@ -20,7 +18,7 @@ EduConnect is a comprehensive, full-stack education consultation platform that e
 - **Video Consultation**: Integrated video calls using Vonage Video API
 - **Credit System**: Token-based appointment purchasing with tiered plans
 - **teacher Verification**: Multi-level authentication and credentialing system
-- **Payout Management**: Automated payment processing for education providers
+- **Payout Management**: Automated payment processing for healthcare providers
 - **Admin Dashboard**: Comprehensive management and monitoring tools
 - **Dark Mode Support**: Theme switching with next-themes
 
@@ -32,6 +30,7 @@ EduConnect is a comprehensive, full-stack education consultation platform that e
 - [Project Architecture](#project-architecture)
 - [Installation & Setup](#installation--setup)
 - [Environment Configuration](#environment-configuration)
+- [Suggested Workflows](#suggested-workflows)
 - [API Documentation](#api-documentation)
   - [Authentication Endpoints](#authentication-endpoints)
   - [teacher Management Endpoints](#teacher-management-endpoints)
@@ -220,6 +219,134 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 npm run build
 npm start
 ```
+
+---
+
+## Suggested Workflows
+
+EduConnect includes **4 GitHub Actions workflows** for CI/CD, testing, and deployment. These workflows run automatically on every push and PR to maintain code quality.
+
+### 1. **CI Workflow** (`.github/workflows/ci.yml`)
+**Purpose**: Lint code, build application, and run security audits
+
+| Task | Trigger | Details |
+|---|---|---|
+| ESLint | Every push/PR | Checks code quality with ESLint |
+| Build | Every push/PR | Builds Next.js application |
+| Type Check | Every push/PR | Validates TypeScript types |
+| Security Audit | Every push/PR | Runs `npm audit` for vulnerable packages |
+
+**When to care**: If build/lint fails, fix issues before merging
+
+**Example Status**:
+```
+✅ ci/lint - Code quality passed
+✅ ci/build - Build successful
+✅ ci/type-check - No type errors
+✅ ci/security-audit - No critical vulnerabilities
+```
+
+---
+
+### 2. **Prisma Validation** (`.github/workflows/prisma-validate.yml`)
+**Purpose**: Validate database schema and test migrations
+
+| Task | Trigger | Details |
+|---|---|---|
+| Schema Validation | On schema.prisma changes | Validates Prisma schema syntax |
+| Generate Client | On schema.prisma changes | Regenerates Prisma Client |
+| Migration Test | On schema.prisma changes | Tests migrations on test database |
+
+**When to care**: If schema changes fail validation, fix `prisma/schema.prisma`
+
+**Example Status**:
+```
+✅ prisma/validate-schema - Schema valid
+✅ prisma/test-migrations - Migrations successful
+```
+
+---
+
+### 3. **Deployment Pipeline** (`.github/workflows/deploy.yml`)
+**Purpose**: Auto-deploy to Vercel when main branch is updated
+
+| Task | Trigger | Details |
+|---|---|---|
+| Build | Push to main | Builds application for production |
+| Deploy | Push to main | Deploys to Vercel automatically |
+| Slack Notify | Push to main | Sends deployment status to Slack |
+
+**When to care**: After merging to main, your app auto-deploys. Check Vercel dashboard
+
+**Example Status**:
+```
+✅ Build successful
+✅ Deployed to https://sparsh2.vercel.app
+✅ Slack notification sent
+```
+
+---
+
+### 4. **Security & Dependencies** (`.github/workflows/security.yml`)
+**Purpose**: Check for vulnerabilities, outdated packages, and code quality
+
+| Task | Trigger | Details |
+|---|---|---|
+| Dependency Check | Weekly + on package.json changes | Audits npm packages |
+| Snyk Scan | Weekly + on package.json changes | Advanced security scanning |
+| CodeQL Analysis | Weekly + on package.json changes | GitHub's code analysis |
+| License Check | Weekly + on package.json changes | Checks package licenses |
+
+**When to care**: If vulnerabilities found, update packages or suppress in review
+
+**Example Status**:
+```
+✅ dependency-check - No moderate vulnerabilities
+✅ security-scan - Security passed
+✅ codeql - No issues found
+✅ license-check - All licenses compatible
+```
+
+---
+
+### Required GitHub Secrets (to set up deployment)
+
+Add these to your GitHub repository settings (`Settings → Secrets and variables → Actions`):
+
+```
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY    → Your Clerk public key
+CLERK_SECRET_KEY                      → Your Clerk secret
+DATABASE_URL                          → Your PostgreSQL connection string
+NEXT_PUBLIC_VONAGE_APPLICATION_ID    → Your Vonage app ID
+VONAGE_PRIVATE_KEY                    → Your Vonage private key
+VERCEL_TOKEN                          → Your Vercel authentication token
+VERCEL_PROJECT_ID                     → Your Vercel project ID
+VERCEL_ORG_ID                         → Your Vercel org ID
+SNYK_TOKEN                            → (Optional) Snyk security token
+SLACK_WEBHOOK                         → (Optional) Slack webhook for notifications
+```
+
+**How to get these**:
+1. **Clerk**: [https://clerk.com/docs/deployments/environments](https://clerk.com/docs/deployments/environments)
+2. **Vonage**: [https://vonage.com/communications-apis/](https://vonage.com/communications-apis/)
+3. **Vercel**: [https://vercel.com/account/tokens](https://vercel.com/account/tokens)
+4. **Snyk**: [https://app.snyk.io/account/](https://app.snyk.io/account/)
+
+---
+
+### Workflow Best Practices
+
+✅ **DO:**
+- Merge only after all workflows pass
+- Keep secrets secure (never commit to repo)
+- Review CodeQL findings before deployment
+- Monitor Slack notifications for deployment issues
+
+❌ **DON'T:**
+- Force push to main (triggers redeploy)
+- Skip workflow failures
+- Commit sensitive keys
+- Use weak npm passwords
 
 ---
 
