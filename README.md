@@ -1,13 +1,14 @@
 
   
-# EduConnect - Professional education Consultation Platform
+# EduConnect - Professional Education Consultation Platform
 
   <img src="https://github.com/sparshsharma81/sparshsharma81/blob/main/images/educonnect-4.gif?raw=true" width="1400" />
-[![Next.js](https://img.shields.io/badge/Next.js-15.3.2-black?style=flat-square&logo=next.js)](https://nextjs.org)
-[![React](https://img.shields.io/badge/React-19.1.0-blue?style=flat-square&logo=react)](https://react.dev)
-[![Prisma](https://img.shields.io/badge/Prisma-6.9.0-2D3748?style=flat-square&logo=prisma)](https://www.prisma.io)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791?style=flat-square&logo=postgresql)](https://www.postgresql.org)
-[![License](https://img.shields.io/badge/License-ISC-blue?style=flat-square)](LICENSE)
+ 
+![Next.js](https://img.shields.io/badge/Next.js-15.3.2-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Prisma](https://img.shields.io/badge/Prisma-6.9.0-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![License](https://img.shields.io/badge/License-ISC-blue?style=for-the-badge)
 
 ## Overview
 
