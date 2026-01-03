@@ -137,7 +137,7 @@ EduConnect/
 │   ├── utils.js                 # Helper functions
 │   ├── checkUser.js             # User verification
 │   ├── data.js                  # Data processing
-│   └── specialities.js          # Medical specialties
+│   └── specialities.js          # academic specialties
 ├── prisma/                       # Database configuration
 │   ├── schema.prisma            # Data models
 │   └── migrations/              # Database migrations
@@ -856,7 +856,7 @@ psql -U postgres -d educonnect -c "SELECT version();"
   }
   ```
 - **Filters**: Only returns VERIFIED teachers
-- **Description**: Search and filter teachers by medical specialty
+- **Description**: Search and filter teachers by academic specialty
 
 ---
 
@@ -874,7 +874,7 @@ model User {
   imageUrl            String?
   role                UserRole            @default(UNASSIGNED)
   credits             Int                 @default(2) // Appointment credit balance
-  specialty           String?             // Medical specialty (teachers only)
+  specialty           String?             // academic specialty (teachers only)
   experience          Int?                // Years of experience
   credentialUrl       String?             // Credential verification link
   description         String?             // Bio/About section
@@ -1136,7 +1136,7 @@ This project is licensed under the ISC License - see LICENSE file for details.
 ## Roadmap
 
 - [ ] Prescription management system
-- [ ] Medical records storage
+- [ ] academic records storage
 - [ ] Payment gateway integration (Stripe/Razorpay)
 - [ ] teacher availability calendar view
 - [ ] Appointment reminders (SMS/Email)
